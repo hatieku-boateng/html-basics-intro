@@ -1,12 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Learn core HTML concepts — elements, attributes, page structure, and headings with interactive examples." />
+    <meta name="description"
+        content="Learn core HTML concepts — elements, attributes, page structure, and headings with interactive examples." />
     <title>Concepts — Learn HTML</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
     <nav>
@@ -36,26 +39,34 @@
         <!-- Elements & Tags -->
         <section class="fade-in" id="elements">
             <h2>Elements &amp; Tags</h2>
-            <p>An HTML <strong>element</strong> consists of an opening tag, content, and a closing tag. Together they define what the content is and how it should be treated by the browser.</p>
+            <p>An HTML <strong>element</strong> consists of an opening tag, content, and a closing tag. Together they
+                define what the content is and how it should be treated by the browser.</p>
             <div class="code-block">
                 <span class="cb-tag">&lt;p&gt;</span>This is a paragraph.<span class="cb-tag">&lt;/p&gt;</span>
             </div>
             <p>Some elements are <strong>self-closing</strong> — they have no content and need no closing tag:</p>
             <div class="code-block">
-                <span class="cb-tag">&lt;img</span> <span class="cb-attr">src</span>=<span class="cb-val">"photo.jpg"</span> <span class="cb-attr">alt</span>=<span class="cb-val">"A photo"</span> <span class="cb-tag">/&gt;</span><br>
+                <span class="cb-tag">&lt;img</span> <span class="cb-attr">src</span>=<span
+                    class="cb-val">"photo.jpg"</span> <span class="cb-attr">alt</span>=<span class="cb-val">"A
+                    photo"</span> <span class="cb-tag">/&gt;</span><br>
                 <span class="cb-tag">&lt;br</span> <span class="cb-tag">/&gt;</span><br>
-                <span class="cb-tag">&lt;input</span> <span class="cb-attr">type</span>=<span class="cb-val">"text"</span> <span class="cb-tag">/&gt;</span>
+                <span class="cb-tag">&lt;input</span> <span class="cb-attr">type</span>=<span
+                    class="cb-val">"text"</span> <span class="cb-tag">/&gt;</span>
             </div>
 
             <h3>Block vs Inline Elements</h3>
             <div class="info-grid">
                 <div class="info-card">
                     <strong>Block Elements</strong>
-                    <p>Start on a new line and take up the full width. Examples: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;section&gt;</code></p>
+                    <p>Start on a new line and take up the full width. Examples: <code>&lt;div&gt;</code>,
+                        <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;section&gt;</code>
+                    </p>
                 </div>
                 <div class="info-card">
                     <strong>Inline Elements</strong>
-                    <p>Flow within text and only take up as much width as needed. Examples: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code></p>
+                    <p>Flow within text and only take up as much width as needed. Examples: <code>&lt;span&gt;</code>,
+                        <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>
+                    </p>
                 </div>
             </div>
         </section>
@@ -63,24 +74,60 @@
         <!-- Attributes -->
         <section class="fade-in" id="attributes">
             <h2>Attributes</h2>
-            <p>Attributes provide extra information about an element. They always go inside the <strong>opening tag</strong> and come in name/value pairs.</p>
+            <p>Attributes provide extra information about an element. They always go inside the <strong>opening
+                    tag</strong> and come in name/value pairs.</p>
             <div class="code-block">
-                <span class="cb-tag">&lt;a</span> <span class="cb-attr">href</span>=<span class="cb-val">"https://example.com"</span> <span class="cb-attr">target</span>=<span class="cb-val">"_blank"</span> <span class="cb-attr">rel</span>=<span class="cb-val">"noopener noreferrer"</span><span class="cb-tag">&gt;</span>Visit<span class="cb-tag">&lt;/a&gt;</span>
+                <span class="cb-tag">&lt;a</span> <span class="cb-attr">href</span>=<span
+                    class="cb-val">"https://example.com"</span> <span class="cb-attr">target</span>=<span
+                    class="cb-val">"_blank"</span> <span class="cb-attr">rel</span>=<span class="cb-val">"noopener
+                    noreferrer"</span><span class="cb-tag">&gt;</span>Visit<span class="cb-tag">&lt;/a&gt;</span>
             </div>
 
             <h3>Common Attributes</h3>
             <table>
                 <thead>
-                    <tr><th>Attribute</th><th>Used On</th><th>Purpose</th></tr>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Used On</th>
+                        <th>Purpose</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td><code>id</code></td><td>Any element</td><td>Unique identifier for the element</td></tr>
-                    <tr><td><code>class</code></td><td>Any element</td><td>Groups elements for CSS/JS targeting</td></tr>
-                    <tr><td><code>href</code></td><td><code>&lt;a&gt;</code></td><td>The URL the link points to</td></tr>
-                    <tr><td><code>src</code></td><td><code>&lt;img&gt;</code>, <code>&lt;script&gt;</code></td><td>Path to an external resource</td></tr>
-                    <tr><td><code>alt</code></td><td><code>&lt;img&gt;</code></td><td>Text description of the image</td></tr>
-                    <tr><td><code>style</code></td><td>Any element</td><td>Inline CSS styling</td></tr>
-                    <tr><td><code>target</code></td><td><code>&lt;a&gt;</code></td><td>Where to open the link (<code>_blank</code> = new tab)</td></tr>
+                    <tr>
+                        <td><code>id</code></td>
+                        <td>Any element</td>
+                        <td>Unique identifier for the element</td>
+                    </tr>
+                    <tr>
+                        <td><code>class</code></td>
+                        <td>Any element</td>
+                        <td>Groups elements for CSS/JS targeting</td>
+                    </tr>
+                    <tr>
+                        <td><code>href</code></td>
+                        <td><code>&lt;a&gt;</code></td>
+                        <td>The URL the link points to</td>
+                    </tr>
+                    <tr>
+                        <td><code>src</code></td>
+                        <td><code>&lt;img&gt;</code>, <code>&lt;script&gt;</code></td>
+                        <td>Path to an external resource</td>
+                    </tr>
+                    <tr>
+                        <td><code>alt</code></td>
+                        <td><code>&lt;img&gt;</code></td>
+                        <td>Text description of the image</td>
+                    </tr>
+                    <tr>
+                        <td><code>style</code></td>
+                        <td>Any element</td>
+                        <td>Inline CSS styling</td>
+                    </tr>
+                    <tr>
+                        <td><code>target</code></td>
+                        <td><code>&lt;a&gt;</code></td>
+                        <td>Where to open the link (<code>_blank</code> = new tab)</td>
+                    </tr>
                 </tbody>
             </table>
         </section>
@@ -91,34 +138,54 @@
             <p>Every valid HTML document follows this standard structure. Each part has a specific role:</p>
             <div class="code-block">
                 <span class="cb-tag">&lt;!DOCTYPE html&gt;</span><br>
-                <span class="cb-tag">&lt;html</span> <span class="cb-attr">lang</span>=<span class="cb-val">"en"</span><span class="cb-tag">&gt;</span><br>
+                <span class="cb-tag">&lt;html</span> <span class="cb-attr">lang</span>=<span
+                    class="cb-val">"en"</span><span class="cb-tag">&gt;</span><br>
                 &nbsp;&nbsp;<span class="cb-tag">&lt;head&gt;</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cb-tag">&lt;meta</span> <span class="cb-attr">charset</span>=<span class="cb-val">"UTF-8"</span> <span class="cb-tag">/&gt;</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cb-tag">&lt;meta</span> <span class="cb-attr">name</span>=<span class="cb-val">"viewport"</span> <span class="cb-attr">content</span>=<span class="cb-val">"width=device-width, initial-scale=1.0"</span> <span class="cb-tag">/&gt;</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cb-tag">&lt;title&gt;</span>My Page<span class="cb-tag">&lt;/title&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cb-tag">&lt;meta</span> <span class="cb-attr">charset</span>=<span
+                    class="cb-val">"UTF-8"</span> <span class="cb-tag">/&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cb-tag">&lt;meta</span> <span class="cb-attr">name</span>=<span
+                    class="cb-val">"viewport"</span> <span class="cb-attr">content</span>=<span
+                    class="cb-val">"width=device-width, initial-scale=1.0"</span> <span class="cb-tag">/&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cb-tag">&lt;title&gt;</span>My Page<span
+                    class="cb-tag">&lt;/title&gt;</span><br>
                 &nbsp;&nbsp;<span class="cb-tag">&lt;/head&gt;</span><br>
                 &nbsp;&nbsp;<span class="cb-tag">&lt;body&gt;</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cb-tag">&lt;h1&gt;</span>Hello World<span class="cb-tag">&lt;/h1&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cb-tag">&lt;h1&gt;</span>Hello World<span
+                    class="cb-tag">&lt;/h1&gt;</span><br>
                 &nbsp;&nbsp;<span class="cb-tag">&lt;/body&gt;</span><br>
                 <span class="cb-tag">&lt;/html&gt;</span>
             </div>
 
             <h3>Semantic Elements</h3>
-            <p>HTML5 introduced <strong>semantic elements</strong> — tags that describe the meaning of their content, not just how it looks:</p>
+            <p>HTML5 introduced <strong>semantic elements</strong> — tags that describe the meaning of their content,
+                not just how it looks:</p>
             <div class="info-grid">
-                <div class="info-card"><strong><code>&lt;header&gt;</code></strong><p>Top section of a page or article</p></div>
-                <div class="info-card"><strong><code>&lt;nav&gt;</code></strong><p>Navigation links</p></div>
-                <div class="info-card"><strong><code>&lt;main&gt;</code></strong><p>Primary content of the page</p></div>
-                <div class="info-card"><strong><code>&lt;section&gt;</code></strong><p>Thematic grouping of content</p></div>
-                <div class="info-card"><strong><code>&lt;article&gt;</code></strong><p>Self-contained piece of content</p></div>
-                <div class="info-card"><strong><code>&lt;footer&gt;</code></strong><p>Bottom section of a page</p></div>
+                <div class="info-card"><strong><code>&lt;header&gt;</code></strong>
+                    <p>Top section of a page or article</p>
+                </div>
+                <div class="info-card"><strong><code>&lt;nav&gt;</code></strong>
+                    <p>Navigation links</p>
+                </div>
+                <div class="info-card"><strong><code>&lt;main&gt;</code></strong>
+                    <p>Primary content of the page</p>
+                </div>
+                <div class="info-card"><strong><code>&lt;section&gt;</code></strong>
+                    <p>Thematic grouping of content</p>
+                </div>
+                <div class="info-card"><strong><code>&lt;article&gt;</code></strong>
+                    <p>Self-contained piece of content</p>
+                </div>
+                <div class="info-card"><strong><code>&lt;footer&gt;</code></strong>
+                    <p>Bottom section of a page</p>
+                </div>
             </div>
         </section>
 
         <!-- Headings -->
         <section class="fade-in" id="headings">
             <h2>Headings</h2>
-            <p>HTML provides 6 heading levels. They create a document hierarchy and are important for SEO and accessibility. Use them in order — don't skip levels.</p>
+            <p>HTML provides 6 heading levels. They create a document hierarchy and are important for SEO and
+                accessibility. Use them in order — don't skip levels.</p>
             <h3>Click a heading to preview it</h3>
             <div class="heading-demo">
                 <div class="h-demo" data-size="2.2rem">h1 — Page Title</div>
@@ -142,9 +209,16 @@
 
     <footer>
         <p>Built with ❤️ as part of the <strong>1 Million Coders Programme</strong></p>
+        <p class="footer-sub">Created by <strong>Harry Atieku-Boateng</strong></p>
+        <p class="footer-sub footer-links">
+            <a href="https://github.com/hatieku-boateng" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/harry-atieku-boateng-369700202/" target="_blank"
+                rel="noopener noreferrer">LinkedIn</a>
+        </p>
         <p class="footer-sub">&copy; <span id="footerYear"></span> Learn HTML. All rights reserved.</p>
     </footer>
 
     <script src="style.js"></script>
 </body>
+
 </html>

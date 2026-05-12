@@ -2,24 +2,36 @@
 // Learn HTML - Interactive Page JS
 // =========================================
 
+// == Safe localStorage helper ==
+function storageGet(key) { try { return localStorage.getItem(key); } catch(e) { return null; } }
+function storageSet(key, val) { try { localStorage.setItem(key, val); } catch(e) {} }
+
 // == 1. Scroll Progress Bar ==
 const progressBar = document.getElementById("progressBar");
-window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    progressBar.style.width = ((scrollTop / docHeight) * 100) + "%";
-});
+if (progressBar) {
+    window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + "%";
+    });
+}
 
 // == 2. Dark Mode Toggle ==
 const darkToggle = document.getElementById("darkToggle");
-darkToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    darkToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
-    localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
-});
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark");
-    darkToggle.textContent = "☀️";
+
+function applyTheme(dark) {
+    document.body.classList.toggle("dark", dark);
+    if (darkToggle) darkToggle.textContent = dark ? "☀️" : "🌙";
+}
+
+applyTheme(storageGet("theme") === "dark");
+
+if (darkToggle) {
+    darkToggle.addEventListener("click", () => {
+        const isDark = document.body.classList.toggle("dark");
+        darkToggle.textContent = isDark ? "☀️" : "🌙";
+        storageSet("theme", isDark ? "dark" : "light");
+    });
 }
 
 // == 3. Active nav link by pathname ==
@@ -50,22 +62,22 @@ document.querySelectorAll("section").forEach((s) => {
 
 // == 5. Back to Top Button ==
 const backToTop = document.getElementById("backToTop");
-window.addEventListener("scroll", () => {
-    backToTop.classList.toggle("show", window.scrollY > 400);
-});
-backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+if (backToTop) {
+    window.addEventListener("scroll", () => {
+        backToTop.classList.toggle("show", window.scrollY > 400);
+    });
+    backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+}
 
 // == 6. Accordion ==
 document.querySelectorAll(".accordion-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
         const body = btn.nextElementSibling;
         const isOpen = btn.classList.contains("open");
-        // Close all
         document.querySelectorAll(".accordion-btn").forEach((b) => {
             b.classList.remove("open");
             b.nextElementSibling.classList.remove("open");
         });
-        // Open clicked if it was closed
         if (!isOpen) {
             btn.classList.add("open");
             body.classList.add("open");
@@ -80,59 +92,63 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
         btn.closest(".tabs").querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
         btn.closest(".tabs").querySelectorAll(".tab-content").forEach((c) => c.classList.remove("active"));
         btn.classList.add("active");
-        document.getElementById("tab-" + tabId).classList.add("active");
+        const tabEl = document.getElementById("tab-" + tabId);
+        if (tabEl) tabEl.classList.add("active");
     });
 });
 
-// == 8. Heading Demo click to preview ==
+// == 8. Heading Demo ==
 document.querySelectorAll(".h-demo").forEach((el, i) => {
     el.style.fontSize = el.dataset.size;
     el.addEventListener("click", () => {
         const level = i + 1;
-        const tag = "h" + level;
-        el.innerHTML = `&lt;${tag}&gt; This is a heading level ${level} &lt;/${tag}&gt;`;
-        setTimeout(() => { el.textContent = `h${level} — ${["Page Title","Section Title","Sub-section","Minor Heading","Small Heading","Smallest"][i]}`; }, 1800);
+        const labels = ["Page Title", "Section Title", "Sub-section", "Minor Heading", "Small Heading", "Smallest"];
+        el.innerHTML = `&lt;h${level}&gt; This is a heading level ${level} &lt;/h${level}&gt;`;
+        setTimeout(() => { el.textContent = `h${level} — ${labels[i]}`; }, 1800);
     });
 });
 
 // == 9. Live Playground ==
-const editor = document.getElementById("htmlEditor");
-const preview = document.getElementById("htmlPreview");
-const defaultCode = editor.value;
+(function () {
+    const editor = document.getElementById("htmlEditor");
+    const preview = document.getElementById("htmlPreview");
+    if (!editor || !preview) return;
 
-function updatePreview() {
-    const doc = preview.contentDocument || preview.contentWindow.document;
-    doc.open();
-    doc.write(`<!DOCTYPE html><html><head><style>
-        body { font-family: 'Segoe UI', sans-serif; padding: 16px; font-size: 15px; color: #1e293b; line-height: 1.6; }
-        h1,h2,h3 { color: #0f172a; } a { color: #6366f1; } code { background:#f1f5f9; padding:2px 6px; border-radius:4px; }
-    </style></head><body>${editor.value}</body></html>`);
-    doc.close();
-}
+    const playgroundDefault = editor.value;
 
-editor.addEventListener("input", updatePreview);
-updatePreview();
+    function updatePreview() {
+        const doc = preview.contentDocument || preview.contentWindow.document;
+        doc.open();
+        doc.write(`<!DOCTYPE html><html><head><style>
+            body { font-family: 'Segoe UI', sans-serif; padding: 16px; font-size: 15px; color: #1e293b; line-height: 1.6; }
+            h1,h2,h3 { color: #0f172a; } a { color: #6366f1; }
+            code { background:#f1f5f9; padding:2px 6px; border-radius:4px; }
+        </style></head><body>${editor.value}</body></html>`);
+        doc.close();
+    }
 
-document.getElementById("resetPlayground").addEventListener("click", () => {
-    editor.value = defaultCode;
+    editor.addEventListener("input", updatePreview);
     updatePreview();
-});
-document.getElementById("clearPlayground").addEventListener("click", () => {
-    editor.value = "";
-    updatePreview();
-});
 
-// == 10. Table Filter ==
-const table = document.querySelector("#tags table");
-if (table) {
+    const resetBtn = document.getElementById("resetPlayground");
+    const clearBtn = document.getElementById("clearPlayground");
+    if (resetBtn) resetBtn.addEventListener("click", () => { editor.value = playgroundDefault; updatePreview(); });
+    if (clearBtn) clearBtn.addEventListener("click", () => { editor.value = ""; updatePreview(); });
+})();
+
+// == 10. Table Filter (tags.html) ==
+const tagTable = document.querySelector("#text table, #media table, #lists table, #tables table, #forms table, #semantic table");
+const firstTable = tagTable || document.querySelector("main table");
+if (firstTable && window.location.pathname.includes("tags")) {
     const input = document.createElement("input");
     input.type = "text";
     input.placeholder = "🔍  Search tags by name or purpose...";
     input.id = "tableFilter";
-    table.parentNode.insertBefore(input, table);
+    input.style.cssText = "width:100%;padding:10px 14px;border:1px solid var(--color-border);border-radius:8px;font-size:0.9rem;background:var(--color-bg);color:var(--color-text);margin-bottom:12px;display:block;";
+    firstTable.closest("section").insertBefore(input, firstTable.closest("section").querySelector("table"));
     input.addEventListener("input", function () {
         const q = this.value.toLowerCase();
-        table.querySelectorAll("tbody tr").forEach((row) => {
+        document.querySelectorAll("main table tbody tr").forEach((row) => {
             row.style.display = row.textContent.toLowerCase().includes(q) ? "" : "none";
         });
     });
@@ -141,149 +157,100 @@ if (table) {
 // == 11. Click to copy code ==
 document.querySelectorAll("code").forEach((el) => {
     el.title = "Click to copy";
+    el.style.cursor = "pointer";
     el.addEventListener("click", function () {
         const original = this.textContent;
         navigator.clipboard.writeText(original).then(() => {
             this.textContent = "Copied!";
             this.style.background = "#dcfce7";
             this.style.color = "#15803d";
-            this.style.borderColor = "#16a34a";
             setTimeout(() => {
                 this.textContent = original;
                 this.style.background = "";
                 this.style.color = "";
-                this.style.borderColor = "";
             }, 1500);
-        });
+        }).catch(() => {});
     });
 });
 
 // == 12. Quiz ==
-const quizData = [
-    {
-        q: "What does HTML stand for?",
-        options: ["Hyper Text Markup Language", "High Tech Modern Language", "HyperLinks and Text Markup Language", "Home Tool Markup Language"],
-        answer: 0
-    },
-    {
-        q: "Which tag creates the largest heading?",
-        options: ["<h6>", "<heading>", "<h1>", "<head>"],
-        answer: 2
-    },
-    {
-        q: "Which tag is used to insert an image?",
-        options: ["<picture>", "<image>", "<src>", "<img>"],
-        answer: 3
-    },
-    {
-        q: "What attribute specifies the URL of a link in the <a> tag?",
-        options: ["src", "href", "link", "url"],
-        answer: 1
-    },
-    {
-        q: "Which HTML element is used for the largest section of page content visible to the user?",
-        options: ["<content>", "<section>", "<body>", "<main>"],
-        answer: 2
-    }
-];
-
-function buildQuiz() {
+(function () {
     const container = document.getElementById("quizContainer");
-    container.innerHTML = "";
-    quizData.forEach((item, qi) => {
-        const block = document.createElement("div");
-        block.className = "quiz-question";
-        block.innerHTML = `<p>Q${qi + 1}. ${item.q}</p><div class="quiz-options">${
-            item.options.map((opt, oi) =>
-                `<label class="quiz-option"><input type="radio" name="q${qi}" value="${oi}" /> ${opt}</label>`
-            ).join("")
-        }</div>`;
-        container.appendChild(block);
-    });
-    const submitBtn = document.createElement("button");
-    submitBtn.type = "submit";
-    submitBtn.textContent = "Submit Answers";
-    container.appendChild(submitBtn);
+    if (!container) return;
 
-    submitBtn.addEventListener("click", () => {
-        let score = 0;
+    const quizData = [
+        { q: "What does HTML stand for?", options: ["Hyper Text Markup Language", "High Tech Modern Language", "HyperLinks and Text Markup Language", "Home Tool Markup Language"], answer: 0 },
+        { q: "Which tag creates the largest heading?", options: ["&lt;h6&gt;", "&lt;heading&gt;", "&lt;h1&gt;", "&lt;head&gt;"], answer: 2 },
+        { q: "Which tag is used to insert an image?", options: ["&lt;picture&gt;", "&lt;image&gt;", "&lt;src&gt;", "&lt;img&gt;"], answer: 3 },
+        { q: "What attribute specifies the URL of a link in the &lt;a&gt; tag?", options: ["src", "href", "link", "url"], answer: 1 },
+        { q: "Which HTML element wraps the primary content of a page?", options: ["&lt;content&gt;", "&lt;section&gt;", "&lt;body&gt;", "&lt;main&gt;"], answer: 3 }
+    ];
+
+    function buildQuiz() {
+        container.innerHTML = "";
         quizData.forEach((item, qi) => {
-            const selected = container.querySelector(`input[name="q${qi}"]:checked`);
-            const options = container.querySelectorAll(`input[name="q${qi}"]`);
-            options.forEach((opt) => {
-                const label = opt.parentElement;
-                label.style.pointerEvents = "none";
-                if (parseInt(opt.value) === item.answer) label.classList.add("correct");
-                if (opt.checked && parseInt(opt.value) !== item.answer) label.classList.add("wrong");
-            });
-            if (selected && parseInt(selected.value) === item.answer) score++;
+            const block = document.createElement("div");
+            block.className = "quiz-question";
+            block.innerHTML = `<p>Q${qi + 1}. ${item.q}</p><div class="quiz-options">${
+                item.options.map((opt, oi) =>
+                    `<label class="quiz-option"><input type="radio" name="q${qi}" value="${oi}" /> ${opt}</label>`
+                ).join("")
+            }</div>`;
+            container.appendChild(block);
         });
-        submitBtn.disabled = true;
-        const result = document.getElementById("quizResult");
-        const scoreEl = document.getElementById("quizScore");
-        const pct = Math.round((score / quizData.length) * 100);
-        const emoji = pct === 100 ? "🎉" : pct >= 60 ? "👍" : "📖";
-        scoreEl.textContent = `${emoji}  You scored ${score} out of ${quizData.length} (${pct}%)`;
-        result.classList.remove("hidden");
-        result.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
-}
+        const submitBtn = document.createElement("button");
+        submitBtn.type = "button";
+        submitBtn.textContent = "Submit Answers";
+        container.appendChild(submitBtn);
 
-buildQuiz();
-const retakeBtn = document.getElementById("retakeQuiz"); if (retakeBtn) retakeBtn.addEventListener("click", () => {
-    document.getElementById("quizResult").classList.add("hidden");
+        submitBtn.addEventListener("click", () => {
+            let score = 0;
+            quizData.forEach((item, qi) => {
+                const selected = container.querySelector(`input[name="q${qi}"]:checked`);
+                container.querySelectorAll(`input[name="q${qi}"]`).forEach((opt) => {
+                    const label = opt.parentElement;
+                    label.style.pointerEvents = "none";
+                    if (parseInt(opt.value) === item.answer) label.classList.add("correct");
+                    if (opt.checked && parseInt(opt.value) !== item.answer) label.classList.add("wrong");
+                });
+                if (selected && parseInt(selected.value) === item.answer) score++;
+            });
+            submitBtn.disabled = true;
+            const result = document.getElementById("quizResult");
+            const scoreEl = document.getElementById("quizScore");
+            if (!result || !scoreEl) return;
+            const pct = Math.round((score / quizData.length) * 100);
+            const emoji = pct === 100 ? "🎉" : pct >= 60 ? "👍" : "📖";
+            scoreEl.textContent = `${emoji}  You scored ${score} out of ${quizData.length} (${pct}%)`;
+            result.classList.remove("hidden");
+            result.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+    }
+
     buildQuiz();
-});
+
+    const retakeBtn = document.getElementById("retakeQuiz");
+    if (retakeBtn) {
+        retakeBtn.addEventListener("click", () => {
+            const result = document.getElementById("quizResult");
+            if (result) result.classList.add("hidden");
+            buildQuiz();
+        });
+    }
+})();
 
 // == 13. Footer year ==
 const yearEl = document.getElementById("footerYear");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 // == 14. Challenge Cards (playground.html) ==
 document.querySelectorAll(".challenge-card").forEach((card) => {
     card.addEventListener("click", () => {
-        const editor = document.getElementById("htmlEditor");
-        if (!editor) return;
-        // Decode the HTML entities in data-code
+        const ed = document.getElementById("htmlEditor");
+        if (!ed) return;
         const raw = card.getAttribute("data-code");
-        const decoded = raw.replace(/\\n/g, "\n");
-        editor.value = decoded;
-        editor.dispatchEvent(new Event("input"));
-        editor.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        ed.value = raw.replace(/\\n/g, "\n");
+        ed.dispatchEvent(new Event("input"));
+        ed.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
 });
-
-// == 15. Reset / Clear Playground Buttons ==
-const resetBtn = document.getElementById("resetPlayground");
-const clearBtn = document.getElementById("clearPlayground");
-const defaultCode = `<h1>My First Webpage</h1>
-<p>Welcome to my page! This is a <strong>paragraph</strong> of text.</p>
-
-<h2>My Favourite Things</h2>
-<ul>
-  <li>Coding 💻</li>
-  <li>Music 🎵</li>
-  <li>Learning 📚</li>
-</ul>
-
-<h2>A Link</h2>
-<a href="https://developer.mozilla.org" target="_blank">Visit MDN Docs</a>
-
-<h2>An Image Placeholder</h2>
-<img src="https://via.placeholder.com/300x150" alt="Placeholder image" />`;
-
-if (resetBtn) {
-    resetBtn.addEventListener("click", () => {
-        const editor = document.getElementById("htmlEditor");
-        if (!editor) return;
-        editor.value = defaultCode;
-        editor.dispatchEvent(new Event("input"));
-    });
-}
-if (clearBtn) {
-    clearBtn.addEventListener("click", () => {
-        const editor = document.getElementById("htmlEditor");
-        if (!editor) return;
-        editor.value = "";
-        editor.dispatchEvent(new Event("input"));
-    });
-}
