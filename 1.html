@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="An introductory HTML page covering the basics of web development." />
-    <meta name="keywords" content="HTML, frontend, web development, beginner, basics" />
-    <title>HTML Basics</title>
+    <meta name="description"
+        content="An interactive HTML learning page for beginners covering core concepts, live demos, and quizzes." />
+    <meta name="keywords" content="HTML, frontend, web development, beginner, interactive, learn" />
+    <title>Learn HTML — Interactive Guide</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -14,77 +15,179 @@
 
     <!-- Navigation -->
     <nav>
-        <a href="#" class="nav-brand">HTML<span>Basics</span></a>
+        <a href="#" class="nav-brand">Learn<span>HTML</span></a>
         <ul>
-            <li><a href="#about">About</a></li>
+            <li><a href="#about">Intro</a></li>
             <li><a href="#concepts">Concepts</a></li>
+            <li><a href="#playground">Playground</a></li>
             <li><a href="#tags">Tags</a></li>
+            <li><a href="#quiz">Quiz</a></li>
             <li><a href="#resources">Resources</a></li>
         </ul>
+        <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
     </nav>
+
+    <!-- Progress Bar -->
+    <div id="progressBar"></div>
 
     <!-- Page Header -->
     <header>
-        <div class="badge">Beginner Friendly</div>
-        <h1>Introduction to HTML</h1>
-        <p>Your first step into web development.</p>
+        <div class="badge">✦ Beginner Friendly</div>
+        <h1>Learn HTML</h1>
+        <p>An interactive guide to building your first webpage — from zero to confident.</p>
+        <div class="header-stats">
+            <div class="stat"><span>6</span> Sections</div>
+            <div class="stat"><span>8</span> Tags Covered</div>
+            <div class="stat"><span>5</span> Quiz Questions</div>
+        </div>
+        <a href="#about" class="hero-btn">Start Learning ↓</a>
     </header>
 
     <!-- Main Content -->
     <main>
 
-        <!-- About Section -->
+        <!-- ── Intro Section ── -->
         <section id="about">
             <h2>What is HTML?</h2>
             <p>
                 <strong>HTML</strong> stands for <em>HyperText Markup Language</em>.
                 It is the standard language used to create and structure content on the web.
+                Every website you visit is built on HTML.
             </p>
-            <img src="images/1.jpg" alt="HTML illustration" width="400" />
+            <img src="images/1.jpg" alt="HTML illustration" />
+
+            <!-- Accordion: How a browser reads HTML -->
+            <h3>How does a browser read HTML?</h3>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-btn">1. Downloads the HTML file</button>
+                    <div class="accordion-body">
+                        <p>When you visit a URL, the browser sends a request to a server and receives an HTML file in
+                            return.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">2. Parses the tags</button>
+                    <div class="accordion-body">
+                        <p>The browser reads through the HTML top to bottom, recognising opening and closing tags and
+                            building a tree structure called the <strong>DOM</strong> (Document Object Model).</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">3. Renders the page</button>
+                    <div class="accordion-body">
+                        <p>Using the DOM tree, the browser calculates layout and paints pixels on your screen —
+                            producing the visual page you see.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Key Concepts Section -->
+        <!-- ── Concepts Section ── -->
         <section id="concepts">
-            <h2>Key Concepts</h2>
+            <h2>Core Concepts</h2>
 
-            <h3>Elements &amp; Tags</h3>
-            <p>HTML is made up of <strong>elements</strong> represented by tags, like <code>&lt;p&gt;</code> for
-                paragraphs and <code>&lt;h1&gt;</code> for headings.</p>
+            <!-- Tabbed content -->
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="elements">Elements</button>
+                    <button class="tab-btn" data-tab="attributes">Attributes</button>
+                    <button class="tab-btn" data-tab="structure">Structure</button>
+                    <button class="tab-btn" data-tab="headings">Headings</button>
+                </div>
 
-            <h3>Headings</h3>
-            <p>HTML provides six levels of headings, from <code>&lt;h1&gt;</code> (most important) to
-                <code>&lt;h6&gt;</code> (least important).
-            </p>
+                <div class="tab-content active" id="tab-elements">
+                    <h3>Elements &amp; Tags</h3>
+                    <p>An HTML <strong>element</strong> consists of an opening tag, content, and a closing tag:</p>
+                    <div class="code-block">
+                        <span class="cb-tag">&lt;p&gt;</span>This is a paragraph.<span class="cb-tag">&lt;/p&gt;</span>
+                    </div>
+                    <p>Some elements are <strong>self-closing</strong> and need no closing tag:</p>
+                    <div class="code-block">
+                        <span class="cb-tag">&lt;img</span> <span class="cb-attr">src</span>=<span
+                            class="cb-val">"photo.jpg"</span> <span class="cb-attr">alt</span>=<span class="cb-val">"A
+                            photo"</span> <span class="cb-tag">/&gt;</span>
+                    </div>
+                </div>
 
-            <h3>Attributes</h3>
-            <p>Tags can have <strong>attributes</strong> that provide extra information, such as <code>src</code> for
-                images or <code>href</code> for links.</p>
+                <div class="tab-content" id="tab-attributes">
+                    <h3>Attributes</h3>
+                    <p>Attributes provide extra information about an element. They live inside the opening tag:</p>
+                    <div class="code-block">
+                        <span class="cb-tag">&lt;a</span> <span class="cb-attr">href</span>=<span
+                            class="cb-val">"https://example.com"</span> <span class="cb-attr">target</span>=<span
+                            class="cb-val">"_blank"</span><span class="cb-tag">&gt;</span>Visit<span
+                            class="cb-tag">&lt;/a&gt;</span>
+                    </div>
+                    <p>Common attributes: <code>id</code>, <code>class</code>, <code>src</code>, <code>href</code>,
+                        <code>alt</code>, <code>style</code>
+                    </p>
+                </div>
+
+                <div class="tab-content" id="tab-structure">
+                    <h3>Page Structure</h3>
+                    <p>Every valid HTML page follows this structure:</p>
+                    <div class="code-block">
+                        <span class="cb-tag">&lt;!DOCTYPE html&gt;</span><br>
+                        <span class="cb-tag">&lt;html</span> <span class="cb-attr">lang</span>=<span
+                            class="cb-val">"en"</span><span class="cb-tag">&gt;</span><br>
+                        &nbsp;&nbsp;<span class="cb-tag">&lt;head&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="cb-tag">&lt;title&gt;</span>My Page<span
+                            class="cb-tag">&lt;/title&gt;</span><br>
+                        &nbsp;&nbsp;<span class="cb-tag">&lt;/head&gt;</span><br>
+                        &nbsp;&nbsp;<span class="cb-tag">&lt;body&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="cb-tag">&lt;h1&gt;</span>Hello World<span
+                            class="cb-tag">&lt;/h1&gt;</span><br>
+                        &nbsp;&nbsp;<span class="cb-tag">&lt;/body&gt;</span><br>
+                        <span class="cb-tag">&lt;/html&gt;</span>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="tab-headings">
+                    <h3>Headings</h3>
+                    <p>HTML has 6 heading levels. Click each to preview:</p>
+                    <div class="heading-demo">
+                        <div class="h-demo" data-size="2.2rem">h1 — Page Title</div>
+                        <div class="h-demo" data-size="1.7rem">h2 — Section Title</div>
+                        <div class="h-demo" data-size="1.35rem">h3 — Sub-section</div>
+                        <div class="h-demo" data-size="1.1rem">h4 — Minor Heading</div>
+                        <div class="h-demo" data-size="0.9rem">h5 — Small Heading</div>
+                        <div class="h-demo" data-size="0.8rem">h6 — Smallest</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Lists Section -->
-        <section>
-            <h2>Why Learn HTML?</h2>
-
-            <h3>Benefits</h3>
-            <ul>
-                <li>It is the foundation of every website.</li>
-                <li>Easy to learn and get started with.</li>
-                <li>Works alongside CSS and JavaScript.</li>
-            </ul>
-
-            <h3>Steps to Get Started</h3>
-            <ol>
-                <li>Learn the basic HTML structure.</li>
-                <li>Understand common tags and their purpose.</li>
-                <li>Build your first webpage.</li>
-                <li>Style it with CSS.</li>
-            </ol>
+        <!-- ── Live Playground Section ── -->
+        <section id="playground">
+            <h2>Live Playground</h2>
+            <p>Edit the HTML below and see the result instantly. Try adding new tags!</p>
+            <div class="playground">
+                <div class="playground-pane">
+                    <div class="pane-label">✏️ HTML Editor</div>
+                    <textarea id="htmlEditor" spellcheck="false">&lt;h2&gt;Hello, World!&lt;/h2&gt;
+&lt;p&gt;This is a &lt;strong&gt;live&lt;/strong&gt; HTML preview.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Edit me&lt;/li&gt;
+  &lt;li&gt;Add more items&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a href="#"&gt;A link&lt;/a&gt;</textarea>
+                </div>
+                <div class="playground-pane">
+                    <div class="pane-label">👁️ Preview</div>
+                    <iframe id="htmlPreview" title="HTML Preview" sandbox="allow-same-origin"></iframe>
+                </div>
+            </div>
+            <div class="playground-actions">
+                <button id="resetPlayground">Reset</button>
+                <button id="clearPlayground">Clear</button>
+            </div>
         </section>
 
-        <!-- HTML Tags Table Section -->
+        <!-- ── Tags Reference Section ── -->
         <section id="tags">
             <h2>Common HTML Tags</h2>
-            <p>Here is a quick reference table of frequently used HTML tags:</p>
+            <p>A searchable reference of the most frequently used HTML tags.</p>
             <table>
                 <thead>
                     <tr>
@@ -143,27 +246,82 @@
                         <td>Collects user input</td>
                         <td><code>&lt;form&gt;...&lt;/form&gt;</code></td>
                     </tr>
+                    <tr>
+                        <td><code>&lt;div&gt;</code></td>
+                        <td>Division</td>
+                        <td>Generic container block</td>
+                        <td><code>&lt;div class="box"&gt;...&lt;/div&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;span&gt;</code></td>
+                        <td>Span</td>
+                        <td>Inline container</td>
+                        <td><code>&lt;span style="color:red"&gt;text&lt;/span&gt;</code></td>
+                    </tr>
                 </tbody>
             </table>
         </section>
 
-        <!-- Links Section -->
+        <!-- ── Quiz Section ── -->
+        <section id="quiz">
+            <h2>Test Your Knowledge</h2>
+            <p>Answer all 5 questions to see your score.</p>
+            <div id="quizContainer">
+                <!-- Injected by JS -->
+            </div>
+            <div id="quizResult" class="quiz-result hidden">
+                <p id="quizScore"></p>
+                <button id="retakeQuiz">Retake Quiz</button>
+            </div>
+        </section>
+
+        <!-- ── Resources Section ── -->
         <section id="resources">
             <h2>Useful Resources</h2>
-            <p>Explore these resources to continue learning:</p>
-            <ul>
-                <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
-                        rel="noopener noreferrer">MDN Web Docs — HTML</a></li>
-                <li><a href="https://www.w3schools.com/html/" target="_blank" rel="noopener noreferrer">W3Schools — HTML
-                        Tutorial</a></li>
-            </ul>
+            <p>Continue your learning journey with these hand-picked resources:</p>
+            <div class="resource-cards">
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer"
+                    class="resource-card">
+                    <div class="rc-icon">📘</div>
+                    <div>
+                        <strong>MDN Web Docs</strong>
+                        <p>The definitive reference for HTML, CSS, and JavaScript by Mozilla.</p>
+                    </div>
+                </a>
+                <a href="https://www.w3schools.com/html/" target="_blank" rel="noopener noreferrer"
+                    class="resource-card">
+                    <div class="rc-icon">🏫</div>
+                    <div>
+                        <strong>W3Schools</strong>
+                        <p>Beginner-friendly tutorials with live "Try it" editors.</p>
+                    </div>
+                </a>
+                <a href="https://web.dev/learn/html" target="_blank" rel="noopener noreferrer" class="resource-card">
+                    <div class="rc-icon">🚀</div>
+                    <div>
+                        <strong>web.dev / Learn HTML</strong>
+                        <p>Google's structured HTML course covering accessibility and semantics.</p>
+                    </div>
+                </a>
+                <a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer" class="resource-card">
+                    <div class="rc-icon">✅</div>
+                    <div>
+                        <strong>W3C Validator</strong>
+                        <p>Paste your HTML to check for errors and validate your markup.</p>
+                    </div>
+                </a>
+            </div>
         </section>
 
     </main>
 
+    <!-- Back to top -->
+    <button id="backToTop" aria-label="Back to top">↑</button>
+
     <!-- Page Footer -->
     <footer>
-        <p>&copy; 2026 HTML Basics. All rights reserved.</p>
+        <p>Built with ❤️ as part of the <strong>1 Million Coders Programme</strong></p>
+        <p class="footer-sub">&copy; <span id="footerYear"></span> Learn HTML. All rights reserved.</p>
     </footer>
 
     <script src="style.js"></script>
