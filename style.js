@@ -22,19 +22,17 @@ if (localStorage.getItem("theme") === "dark") {
     darkToggle.textContent = "☀️";
 }
 
-// == 3. Scroll Spy (active nav link) ==
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll("nav ul li a");
-const spyObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            navLinks.forEach((l) => l.classList.remove("active"));
-            const active = document.querySelector(`nav ul li a[href="#${entry.target.id}"]`);
-            if (active) active.classList.add("active");
+// == 3. Active nav link by pathname ==
+(function () {
+    const navLinks = document.querySelectorAll("nav ul li a");
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    navLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+        if (href === currentPage || (currentPage === "" && href === "index.html")) {
+            link.classList.add("active");
         }
     });
-}, { threshold: 0.4 });
-sections.forEach((s) => spyObserver.observe(s));
+})();
 
 // == 4. Fade-in sections on scroll ==
 const fadeObserver = new IntersectionObserver((entries) => {
@@ -232,7 +230,7 @@ function buildQuiz() {
 }
 
 buildQuiz();
-document.getElementById("retakeQuiz").addEventListener("click", () => {
+const retakeBtn = document.getElementById("retakeQuiz"); if (retakeBtn) retakeBtn.addEventListener("click", () => {
     document.getElementById("quizResult").classList.add("hidden");
     buildQuiz();
 });
@@ -240,3 +238,52 @@ document.getElementById("retakeQuiz").addEventListener("click", () => {
 // == 13. Footer year ==
 const yearEl = document.getElementById("footerYear");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+// == 14. Challenge Cards (playground.html) ==
+document.querySelectorAll(".challenge-card").forEach((card) => {
+    card.addEventListener("click", () => {
+        const editor = document.getElementById("htmlEditor");
+        if (!editor) return;
+        // Decode the HTML entities in data-code
+        const raw = card.getAttribute("data-code");
+        const decoded = raw.replace(/\\n/g, "\n");
+        editor.value = decoded;
+        editor.dispatchEvent(new Event("input"));
+        editor.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+});
+
+// == 15. Reset / Clear Playground Buttons ==
+const resetBtn = document.getElementById("resetPlayground");
+const clearBtn = document.getElementById("clearPlayground");
+const defaultCode = `<h1>My First Webpage</h1>
+<p>Welcome to my page! This is a <strong>paragraph</strong> of text.</p>
+
+<h2>My Favourite Things</h2>
+<ul>
+  <li>Coding 💻</li>
+  <li>Music 🎵</li>
+  <li>Learning 📚</li>
+</ul>
+
+<h2>A Link</h2>
+<a href="https://developer.mozilla.org" target="_blank">Visit MDN Docs</a>
+
+<h2>An Image Placeholder</h2>
+<img src="https://via.placeholder.com/300x150" alt="Placeholder image" />`;
+
+if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+        const editor = document.getElementById("htmlEditor");
+        if (!editor) return;
+        editor.value = defaultCode;
+        editor.dispatchEvent(new Event("input"));
+    });
+}
+if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+        const editor = document.getElementById("htmlEditor");
+        if (!editor) return;
+        editor.value = "";
+        editor.dispatchEvent(new Event("input"));
+    });
+}

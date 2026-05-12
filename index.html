@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Learn HTML interactively — a beginner-friendly guide covering core concepts, a live playground, tag reference, quiz, and resources." />
+    <title>Learn HTML — Home</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">Learn<span>HTML</span></a>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="playground.html">Playground</a></li>
+            <li><a href="tags.html">Tags</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+        <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+    <div id="progressBar"></div>
+
+    <header>
+        <div class="badge">✦ Beginner Friendly</div>
+        <h1>Learn HTML</h1>
+        <p>An interactive guide to building your first webpage — from zero to confident.</p>
+        <div class="header-stats">
+            <div class="stat"><span>5</span> Pages</div>
+            <div class="stat"><span>10</span> Tags Covered</div>
+            <div class="stat"><span>5</span> Quiz Questions</div>
+        </div>
+        <a href="concepts.html" class="hero-btn">Start Learning →</a>
+    </header>
+
+    <main>
+
+        <!-- What is HTML -->
+        <section id="about" class="fade-in">
+            <h2>What is HTML?</h2>
+            <p>
+                <strong>HTML</strong> stands for <em>HyperText Markup Language</em>.
+                It is the standard language used to create and structure content on the web.
+                Every website you visit is built on HTML.
+            </p>
+            <img src="images/1.jpg" alt="HTML illustration" />
+
+            <h3>How does a browser read HTML?</h3>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-btn">1. Downloads the HTML file</button>
+                    <div class="accordion-body">
+                        <p>When you visit a URL, the browser sends a request to a server and receives an HTML file in return.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">2. Parses the tags</button>
+                    <div class="accordion-body">
+                        <p>The browser reads through the HTML top to bottom, recognising opening and closing tags and building a tree structure called the <strong>DOM</strong> (Document Object Model).</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-btn">3. Renders the page</button>
+                    <div class="accordion-body">
+                        <p>Using the DOM tree, the browser calculates layout and paints pixels on your screen — producing the visual page you see.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Site Navigation Cards -->
+        <section class="fade-in">
+            <h2>Explore the Guide</h2>
+            <p>Each section is its own dedicated page — pick where you want to start.</p>
+            <div class="nav-cards">
+                <a href="concepts.html" class="nav-card">
+                    <div class="nc-icon">📖</div>
+                    <strong>Concepts</strong>
+                    <p>Elements, attributes, page structure, and headings — explained with interactive tabs and code examples.</p>
+                    <span class="nc-link">Explore →</span>
+                </a>
+                <a href="playground.html" class="nav-card">
+                    <div class="nc-icon">🧪</div>
+                    <strong>Playground</strong>
+                    <p>Type HTML and see it render live in a split-pane editor. No setup required.</p>
+                    <span class="nc-link">Try it →</span>
+                </a>
+                <a href="tags.html" class="nav-card">
+                    <div class="nc-icon">🏷️</div>
+                    <strong>Tags Reference</strong>
+                    <p>A searchable table of the most commonly used HTML tags with examples.</p>
+                    <span class="nc-link">Browse →</span>
+                </a>
+                <a href="quiz.html" class="nav-card">
+                    <div class="nc-icon">🧠</div>
+                    <strong>Quiz</strong>
+                    <p>Test what you have learned with 5 interactive questions and instant scoring.</p>
+                    <span class="nc-link">Take Quiz →</span>
+                </a>
+                <a href="resources.html" class="nav-card">
+                    <div class="nc-icon">🔗</div>
+                    <strong>Resources</strong>
+                    <p>Hand-picked links to the best HTML learning resources on the web.</p>
+                    <span class="nc-link">View →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Why Learn HTML -->
+        <section class="fade-in">
+            <h2>Why Learn HTML?</h2>
+            <div class="two-col">
+                <div>
+                    <h3>Benefits</h3>
+                    <ul>
+                        <li>It is the foundation of every website on the internet.</li>
+                        <li>Easy to learn — you can write your first page in minutes.</li>
+                        <li>Works alongside CSS (styling) and JavaScript (behaviour).</li>
+                        <li>Opens the door to a career in web development.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Steps to Get Started</h3>
+                    <ol>
+                        <li>Learn the basic HTML document structure.</li>
+                        <li>Understand common tags and their purpose.</li>
+                        <li>Build your first webpage.</li>
+                        <li>Style it with CSS.</li>
+                        <li>Add interactivity with JavaScript.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <button id="backToTop" aria-label="Back to top">↑</button>
+
+    <footer>
+        <p>Built with ❤️ as part of the <strong>1 Million Coders Programme</strong></p>
+        <p class="footer-sub">&copy; <span id="footerYear"></span> Learn HTML. All rights reserved.</p>
+    </footer>
+
+    <script src="style.js"></script>
+</body>
+</html>

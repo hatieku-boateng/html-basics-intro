@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Test your HTML knowledge with 5 interactive quiz questions and instant scoring." />
+    <title>Quiz — Learn HTML</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">Learn<span>HTML</span></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="playground.html">Playground</a></li>
+            <li><a href="tags.html">Tags</a></li>
+            <li><a href="quiz.html" class="active">Quiz</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+        <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+    <div id="progressBar"></div>
+
+    <div class="page-header">
+        <div class="ph-inner">
+            <div class="breadcrumb"><a href="index.html">Home</a> / Quiz</div>
+            <h1>Test Your Knowledge</h1>
+            <p>5 questions covering everything you have learned. Select your answer and submit when ready.</p>
+        </div>
+    </div>
+
+    <main>
+
+        <section class="fade-in">
+            <h2>HTML Quiz</h2>
+            <p>Answer all questions, then click <strong>Submit Answers</strong> to see your score and feedback.</p>
+            <div id="quizContainer"></div>
+            <div id="quizResult" class="quiz-result hidden">
+                <p id="quizScore"></p>
+                <div class="quiz-result-actions">
+                    <button id="retakeQuiz">↺ Retake Quiz</button>
+                    <a href="resources.html" class="page-nav-btn next">View Resources →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- What to study -->
+        <section class="fade-in">
+            <h2>Struggling? Revisit These Pages</h2>
+            <div class="nav-cards nav-cards-compact">
+                <a href="concepts.html" class="nav-card">
+                    <div class="nc-icon">📖</div>
+                    <strong>Concepts</strong>
+                    <p>Elements, attributes, structure</p>
+                    <span class="nc-link">Review →</span>
+                </a>
+                <a href="tags.html" class="nav-card">
+                    <div class="nc-icon">🏷️</div>
+                    <strong>Tags Reference</strong>
+                    <p>Full tag reference tables</p>
+                    <span class="nc-link">Review →</span>
+                </a>
+                <a href="playground.html" class="nav-card">
+                    <div class="nc-icon">🧪</div>
+                    <strong>Playground</strong>
+                    <p>Practise writing HTML live</p>
+                    <span class="nc-link">Practise →</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="page-nav">
+            <a href="tags.html" class="page-nav-btn prev">← Tags</a>
+            <a href="resources.html" class="page-nav-btn next">Resources →</a>
+        </div>
+
+    </main>
+
+    <button id="backToTop" aria-label="Back to top">↑</button>
+
+    <footer>
+        <p>Built with ❤️ as part of the <strong>1 Million Coders Programme</strong></p>
+        <p class="footer-sub">&copy; <span id="footerYear"></span> Learn HTML. All rights reserved.</p>
+    </footer>
+
+    <script src="style.js"></script>
+</body>
+</html>

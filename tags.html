@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A searchable reference of common HTML tags with names, purposes, and code examples." />
+    <title>Tags Reference — Learn HTML</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">Learn<span>HTML</span></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="playground.html">Playground</a></li>
+            <li><a href="tags.html" class="active">Tags</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+        <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+    <div id="progressBar"></div>
+
+    <div class="page-header">
+        <div class="ph-inner">
+            <div class="breadcrumb"><a href="index.html">Home</a> / Tags</div>
+            <h1>HTML Tags Reference</h1>
+            <p>A searchable, categorised reference of the most common HTML tags — click any code snippet to copy it.</p>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- Text & Structure -->
+        <section class="fade-in" id="text">
+            <h2>Text &amp; Structure</h2>
+            <p>Tags for organising and formatting text content on the page.</p>
+            <table>
+                <thead>
+                    <tr><th>Tag</th><th>Name</th><th>Purpose</th><th>Example</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>&lt;h1&gt;–&lt;h6&gt;</code></td><td>Headings</td><td>Page and section titles</td><td><code>&lt;h1&gt;Title&lt;/h1&gt;</code></td></tr>
+                    <tr><td><code>&lt;p&gt;</code></td><td>Paragraph</td><td>Block of text</td><td><code>&lt;p&gt;Hello&lt;/p&gt;</code></td></tr>
+                    <tr><td><code>&lt;strong&gt;</code></td><td>Bold</td><td>Important/bold text</td><td><code>&lt;strong&gt;Bold&lt;/strong&gt;</code></td></tr>
+                    <tr><td><code>&lt;em&gt;</code></td><td>Italic</td><td>Emphasised/italic text</td><td><code>&lt;em&gt;Italic&lt;/em&gt;</code></td></tr>
+                    <tr><td><code>&lt;br&gt;</code></td><td>Line Break</td><td>Inserts a line break</td><td><code>&lt;br /&gt;</code></td></tr>
+                    <tr><td><code>&lt;hr&gt;</code></td><td>Horizontal Rule</td><td>Thematic divider line</td><td><code>&lt;hr /&gt;</code></td></tr>
+                    <tr><td><code>&lt;blockquote&gt;</code></td><td>Blockquote</td><td>Indented quote from another source</td><td><code>&lt;blockquote&gt;Quote&lt;/blockquote&gt;</code></td></tr>
+                    <tr><td><code>&lt;code&gt;</code></td><td>Code</td><td>Inline code snippet</td><td><code>&lt;code&gt;var x = 1;&lt;/code&gt;</code></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Links & Media -->
+        <section class="fade-in" id="media">
+            <h2>Links &amp; Media</h2>
+            <p>Tags for embedding images, videos, and creating hyperlinks.</p>
+            <table>
+                <thead>
+                    <tr><th>Tag</th><th>Name</th><th>Purpose</th><th>Key Attributes</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>&lt;a&gt;</code></td><td>Anchor</td><td>Hyperlink to another page or URL</td><td><code>href</code>, <code>target</code></td></tr>
+                    <tr><td><code>&lt;img&gt;</code></td><td>Image</td><td>Embeds an image</td><td><code>src</code>, <code>alt</code>, <code>width</code></td></tr>
+                    <tr><td><code>&lt;video&gt;</code></td><td>Video</td><td>Embeds a video player</td><td><code>src</code>, <code>controls</code>, <code>autoplay</code></td></tr>
+                    <tr><td><code>&lt;audio&gt;</code></td><td>Audio</td><td>Embeds an audio player</td><td><code>src</code>, <code>controls</code></td></tr>
+                    <tr><td><code>&lt;iframe&gt;</code></td><td>Inline Frame</td><td>Embeds another HTML page or URL</td><td><code>src</code>, <code>width</code>, <code>height</code></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Lists -->
+        <section class="fade-in" id="lists">
+            <h2>Lists</h2>
+            <p>Tags for creating ordered, unordered, and description lists.</p>
+            <table>
+                <thead>
+                    <tr><th>Tag</th><th>Name</th><th>Purpose</th><th>Example</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>&lt;ul&gt;</code></td><td>Unordered List</td><td>Bullet point list</td><td><code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></td></tr>
+                    <tr><td><code>&lt;ol&gt;</code></td><td>Ordered List</td><td>Numbered list</td><td><code>&lt;ol&gt;&lt;li&gt;Step&lt;/li&gt;&lt;/ol&gt;</code></td></tr>
+                    <tr><td><code>&lt;li&gt;</code></td><td>List Item</td><td>An item inside a list</td><td><code>&lt;li&gt;My item&lt;/li&gt;</code></td></tr>
+                    <tr><td><code>&lt;dl&gt;</code></td><td>Description List</td><td>Term/definition pairs</td><td><code>&lt;dl&gt;&lt;dt&gt;Term&lt;/dt&gt;&lt;dd&gt;Def&lt;/dd&gt;&lt;/dl&gt;</code></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Tables -->
+        <section class="fade-in" id="tables">
+            <h2>Tables</h2>
+            <p>Tags for creating structured data tables.</p>
+            <table>
+                <thead>
+                    <tr><th>Tag</th><th>Name</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>&lt;table&gt;</code></td><td>Table</td><td>Container for the entire table</td></tr>
+                    <tr><td><code>&lt;thead&gt;</code></td><td>Table Head</td><td>Groups the header rows</td></tr>
+                    <tr><td><code>&lt;tbody&gt;</code></td><td>Table Body</td><td>Groups the data rows</td></tr>
+                    <tr><td><code>&lt;tfoot&gt;</code></td><td>Table Footer</td><td>Groups the footer rows</td></tr>
+                    <tr><td><code>&lt;tr&gt;</code></td><td>Table Row</td><td>A single row in the table</td></tr>
+                    <tr><td><code>&lt;th&gt;</code></td><td>Table Header Cell</td><td>A header cell — bold and centred by default</td></tr>
+                    <tr><td><code>&lt;td&gt;</code></td><td>Table Data Cell</td><td>A regular data cell</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Forms -->
+        <section class="fade-in" id="forms">
+            <h2>Forms</h2>
+            <p>Tags for collecting user input.</p>
+            <table>
+                <thead>
+                    <tr><th>Tag</th><th>Name</th><th>Purpose</th><th>Key Attributes</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>&lt;form&gt;</code></td><td>Form</td><td>Container for form controls</td><td><code>action</code>, <code>method</code></td></tr>
+                    <tr><td><code>&lt;input&gt;</code></td><td>Input</td><td>Various input types (text, email, checkbox…)</td><td><code>type</code>, <code>name</code>, <code>placeholder</code></td></tr>
+                    <tr><td><code>&lt;label&gt;</code></td><td>Label</td><td>Text label for an input</td><td><code>for</code></td></tr>
+                    <tr><td><code>&lt;textarea&gt;</code></td><td>Textarea</td><td>Multi-line text input</td><td><code>rows</code>, <code>cols</code></td></tr>
+                    <tr><td><code>&lt;select&gt;</code></td><td>Select</td><td>Dropdown menu</td><td><code>name</code>, <code>multiple</code></td></tr>
+                    <tr><td><code>&lt;option&gt;</code></td><td>Option</td><td>An item inside a dropdown</td><td><code>value</code></td></tr>
+                    <tr><td><code>&lt;button&gt;</code></td><td>Button</td><td>Clickable button</td><td><code>type</code></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Semantic / Layout -->
+        <section class="fade-in" id="semantic">
+            <h2>Semantic &amp; Layout</h2>
+            <p>Tags that define the structure and meaning of page sections.</p>
+            <table>
+                <thead>
+                    <tr><th>Tag</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>&lt;header&gt;</code></td><td>Top section of a page or component</td></tr>
+                    <tr><td><code>&lt;nav&gt;</code></td><td>Navigation links</td></tr>
+                    <tr><td><code>&lt;main&gt;</code></td><td>Primary content of the page (one per page)</td></tr>
+                    <tr><td><code>&lt;section&gt;</code></td><td>A thematic grouping of content</td></tr>
+                    <tr><td><code>&lt;article&gt;</code></td><td>Self-contained content (blog post, news article)</td></tr>
+                    <tr><td><code>&lt;aside&gt;</code></td><td>Related sidebar content</td></tr>
+                    <tr><td><code>&lt;footer&gt;</code></td><td>Bottom section of a page or component</td></tr>
+                    <tr><td><code>&lt;div&gt;</code></td><td>Generic block container (no semantic meaning)</td></tr>
+                    <tr><td><code>&lt;span&gt;</code></td><td>Generic inline container (no semantic meaning)</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div class="page-nav">
+            <a href="playground.html" class="page-nav-btn prev">← Playground</a>
+            <a href="quiz.html" class="page-nav-btn next">Quiz →</a>
+        </div>
+
+    </main>
+
+    <button id="backToTop" aria-label="Back to top">↑</button>
+
+    <footer>
+        <p>Built with ❤️ as part of the <strong>1 Million Coders Programme</strong></p>
+        <p class="footer-sub">&copy; <span id="footerYear"></span> Learn HTML. All rights reserved.</p>
+    </footer>
+
+    <script src="style.js"></script>
+</body>
+</html>

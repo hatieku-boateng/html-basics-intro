@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Write HTML and see it render live in a split-pane playground editor." />
+    <title>Playground — Learn HTML</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-brand">Learn<span>HTML</span></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="playground.html" class="active">Playground</a></li>
+            <li><a href="tags.html">Tags</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+        <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+    <div id="progressBar"></div>
+
+    <div class="page-header">
+        <div class="ph-inner">
+            <div class="breadcrumb"><a href="index.html">Home</a> / Playground</div>
+            <h1>Live Playground</h1>
+            <p>Type HTML in the editor and see it render in real time. No setup, no installation — just you and HTML.</p>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- Main Playground -->
+        <section class="fade-in">
+            <h2>HTML Editor</h2>
+            <p>Edit the code on the left — the preview on the right updates instantly.</p>
+            <div class="playground playground-full">
+                <div class="playground-pane">
+                    <div class="pane-label">✏️ HTML Editor</div>
+                    <textarea id="htmlEditor" spellcheck="false">&lt;h1&gt;My First Webpage&lt;/h1&gt;
+&lt;p&gt;Welcome to my page! This is a &lt;strong&gt;paragraph&lt;/strong&gt; of text.&lt;/p&gt;
+
+&lt;h2&gt;My Favourite Things&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Coding 💻&lt;/li&gt;
+  &lt;li&gt;Music 🎵&lt;/li&gt;
+  &lt;li&gt;Learning 📚&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;A Link&lt;/h2&gt;
+&lt;a href="https://developer.mozilla.org" target="_blank"&gt;Visit MDN Docs&lt;/a&gt;
+
+&lt;h2&gt;An Image Placeholder&lt;/h2&gt;
+&lt;img src="https://via.placeholder.com/300x150" alt="Placeholder image" /&gt;</textarea>
+                </div>
+                <div class="playground-pane">
+                    <div class="pane-label">👁️ Preview</div>
+                    <iframe id="htmlPreview" title="HTML Preview" sandbox="allow-same-origin allow-scripts"></iframe>
+                </div>
+            </div>
+            <div class="playground-actions">
+                <button id="resetPlayground">↺ Reset</button>
+                <button id="clearPlayground">✕ Clear</button>
+            </div>
+        </section>
+
+        <!-- Try These Challenges -->
+        <section class="fade-in">
+            <h2>Try These Challenges</h2>
+            <p>Click a challenge to load it into the editor:</p>
+            <div class="challenge-cards">
+                <button class="challenge-card" data-code="&lt;h1&gt;About Me&lt;/h1&gt;\n&lt;p&gt;My name is &lt;strong&gt;Your Name&lt;/strong&gt;.&lt;/p&gt;\n&lt;p&gt;I am learning &lt;em&gt;HTML&lt;/em&gt;!&lt;/p&gt;">
+                    <strong>1. About Me</strong>
+                    <p>Create a simple bio using headings, paragraphs, and text formatting.</p>
+                </button>
+                <button class="challenge-card" data-code="&lt;h2&gt;My Shopping List&lt;/h2&gt;\n&lt;ul&gt;\n  &lt;li&gt;Apples&lt;/li&gt;\n  &lt;li&gt;Bread&lt;/li&gt;\n  &lt;li&gt;Milk&lt;/li&gt;\n&lt;/ul&gt;\n\n&lt;h2&gt;Steps to Make Tea&lt;/h2&gt;\n&lt;ol&gt;\n  &lt;li&gt;Boil the water&lt;/li&gt;\n  &lt;li&gt;Add a teabag&lt;/li&gt;\n  &lt;li&gt;Pour and enjoy&lt;/li&gt;\n&lt;/ol&gt;">
+                    <strong>2. Lists</strong>
+                    <p>Build an unordered shopping list and an ordered step-by-step list.</p>
+                </button>
+                <button class="challenge-card" data-code="&lt;h2&gt;Class Timetable&lt;/h2&gt;\n&lt;table border=&quot;1&quot; cellpadding=&quot;8&quot;&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th&gt;Day&lt;/th&gt;\n      &lt;th&gt;Subject&lt;/th&gt;\n      &lt;th&gt;Time&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr&gt;\n      &lt;td&gt;Monday&lt;/td&gt;\n      &lt;td&gt;HTML&lt;/td&gt;\n      &lt;td&gt;9:00 AM&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td&gt;Tuesday&lt;/td&gt;\n      &lt;td&gt;CSS&lt;/td&gt;\n      &lt;td&gt;10:00 AM&lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;">
+                    <strong>3. Table</strong>
+                    <p>Create a class timetable using a full HTML table with headers and rows.</p>
+                </button>
+                <button class="challenge-card" data-code="&lt;h2&gt;Contact Form&lt;/h2&gt;\n&lt;form&gt;\n  &lt;p&gt;\n    &lt;label&gt;Name:&lt;/label&gt;&lt;br&gt;\n    &lt;input type=&quot;text&quot; placeholder=&quot;Your name&quot; /&gt;\n  &lt;/p&gt;\n  &lt;p&gt;\n    &lt;label&gt;Email:&lt;/label&gt;&lt;br&gt;\n    &lt;input type=&quot;email&quot; placeholder=&quot;you@example.com&quot; /&gt;\n  &lt;/p&gt;\n  &lt;p&gt;\n    &lt;label&gt;Message:&lt;/label&gt;&lt;br&gt;\n    &lt;textarea rows=&quot;4&quot; placeholder=&quot;Your message...&quot;&gt;&lt;/textarea&gt;\n  &lt;/p&gt;\n  &lt;button type=&quot;submit&quot;&gt;Send&lt;/button&gt;\n&lt;/form&gt;">
+                    <strong>4. Form</strong>
+                    <p>Build a contact form with text inputs, email input, textarea, and a submit button.</p>
+                </button>
+            </div>
+        </section>
+
+        <!-- Tips -->
+        <section class="fade-in">
+            <h2>Tips for the Playground</h2>
+            <ul>
+                <li>You can use <strong>any valid HTML tag</strong> — headings, images, tables, forms, links, and more.</li>
+                <li>External images need a full URL: <code>src="https://..."</code></li>
+                <li>Use <code>&lt;br&gt;</code> for line breaks and <code>&lt;hr&gt;</code> for a horizontal rule.</li>
+                <li>Click <strong>Reset</strong> to restore the default code, or <strong>Clear</strong> to start fresh.</li>
+                <li>Right-click in the preview and choose "View Page Source" to inspect the rendered HTML.</li>
+            </ul>
+        </section>
+
+        <div class="page-nav">
+            <a href="concepts.html" class="page-nav-btn prev">← Concepts</a>
+            <a href="tags.html" class="page-nav-btn next">Tags →</a>
+        </div>
+
+    </main>
+
+    <button id="backToTop" aria-label="Back to top">↑</button>
+
+    <footer>
+        <p>Built with ❤️ as part of the <strong>1 Million Coders Programme</strong></p>
+        <p class="footer-sub">&copy; <span id="footerYear"></span> Learn HTML. All rights reserved.</p>
+    </footer>
+
+    <script src="style.js"></script>
+</body>
+</html>
