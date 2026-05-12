@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An introductory HTML page covering the basics of web development." />
+    <meta name="keywords" content="HTML, frontend, web development, beginner, basics" />
+    <title>HTML Basics</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-brand">HTML<span>Basics</span></a>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#concepts">Concepts</a></li>
+            <li><a href="#tags">Tags</a></li>
+            <li><a href="#resources">Resources</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header>
+        <div class="badge">Beginner Friendly</div>
+        <h1>Introduction to HTML</h1>
+        <p>Your first step into web development.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>What is HTML?</h2>
+            <p>
+                <strong>HTML</strong> stands for <em>HyperText Markup Language</em>.
+                It is the standard language used to create and structure content on the web.
+            </p>
+            <img src="images/1.jpg" alt="HTML illustration" width="400" />
+        </section>
+
+        <!-- Key Concepts Section -->
+        <section id="concepts">
+            <h2>Key Concepts</h2>
+
+            <h3>Elements &amp; Tags</h3>
+            <p>HTML is made up of <strong>elements</strong> represented by tags, like <code>&lt;p&gt;</code> for
+                paragraphs and <code>&lt;h1&gt;</code> for headings.</p>
+
+            <h3>Headings</h3>
+            <p>HTML provides six levels of headings, from <code>&lt;h1&gt;</code> (most important) to
+                <code>&lt;h6&gt;</code> (least important).
+            </p>
+
+            <h3>Attributes</h3>
+            <p>Tags can have <strong>attributes</strong> that provide extra information, such as <code>src</code> for
+                images or <code>href</code> for links.</p>
+        </section>
+
+        <!-- Lists Section -->
+        <section>
+            <h2>Why Learn HTML?</h2>
+
+            <h3>Benefits</h3>
+            <ul>
+                <li>It is the foundation of every website.</li>
+                <li>Easy to learn and get started with.</li>
+                <li>Works alongside CSS and JavaScript.</li>
+            </ul>
+
+            <h3>Steps to Get Started</h3>
+            <ol>
+                <li>Learn the basic HTML structure.</li>
+                <li>Understand common tags and their purpose.</li>
+                <li>Build your first webpage.</li>
+                <li>Style it with CSS.</li>
+            </ol>
+        </section>
+
+        <!-- HTML Tags Table Section -->
+        <section id="tags">
+            <h2>Common HTML Tags</h2>
+            <p>Here is a quick reference table of frequently used HTML tags:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tag</th>
+                        <th>Name</th>
+                        <th>Purpose</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;h1&gt;</code></td>
+                        <td>Heading 1</td>
+                        <td>Main page title</td>
+                        <td><code>&lt;h1&gt;Hello&lt;/h1&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;p&gt;</code></td>
+                        <td>Paragraph</td>
+                        <td>Blocks of text</td>
+                        <td><code>&lt;p&gt;Some text&lt;/p&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;a&gt;</code></td>
+                        <td>Anchor</td>
+                        <td>Hyperlinks</td>
+                        <td><code>&lt;a href="#"&gt;Click&lt;/a&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;img&gt;</code></td>
+                        <td>Image</td>
+                        <td>Displays an image</td>
+                        <td><code>&lt;img src="pic.jpg" alt="desc" /&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;ul&gt;</code></td>
+                        <td>Unordered List</td>
+                        <td>Bullet point list</td>
+                        <td><code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;ol&gt;</code></td>
+                        <td>Ordered List</td>
+                        <td>Numbered list</td>
+                        <td><code>&lt;ol&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ol&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;table&gt;</code></td>
+                        <td>Table</td>
+                        <td>Displays tabular data</td>
+                        <td><code>&lt;table&gt;...&lt;/table&gt;</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;form&gt;</code></td>
+                        <td>Form</td>
+                        <td>Collects user input</td>
+                        <td><code>&lt;form&gt;...&lt;/form&gt;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Links Section -->
+        <section id="resources">
+            <h2>Useful Resources</h2>
+            <p>Explore these resources to continue learning:</p>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank"
+                        rel="noopener noreferrer">MDN Web Docs — HTML</a></li>
+                <li><a href="https://www.w3schools.com/html/" target="_blank" rel="noopener noreferrer">W3Schools — HTML
+                        Tutorial</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Page Footer -->
+    <footer>
+        <p>&copy; 2026 HTML Basics. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
