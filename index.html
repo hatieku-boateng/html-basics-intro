@@ -22,19 +22,25 @@
             <li><a href="quiz.html">Quiz</a></li>
             <li><a href="resources.html">Resources</a></li>
         </ul>
-        <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+        <div class="nav-actions">
+            <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+            <button id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        </div>
     </nav>
     <div id="progressBar"></div>
 
     <header>
+        <div class="hero-glow-2"></div>
         <div class="badge">✦ Beginner Friendly</div>
         <h1>Data Communication</h1>
         <p>A structured overview of how data moves across networks — from electrical signals to the protocols that power
             the modern internet.</p>
         <div class="header-stats">
-            <div class="stat"><span>5</span> Topics</div>
-            <div class="stat"><span>20+</span> Technologies</div>
-            <div class="stat"><span>5</span> Quiz Questions</div>
+            <div class="stat"><span data-target="5" data-suffix="">0</span><span class="stat-label">Topics</span></div>
+            <div class="stat"><span data-target="20" data-suffix="+">0+</span><span
+                    class="stat-label">Technologies</span></div>
+            <div class="stat"><span data-target="5" data-suffix="">0</span><span class="stat-label">Quiz
+                    Questions</span></div>
         </div>
         <a href="concepts.html" class="hero-btn">Start Learning →</a>
     </header>

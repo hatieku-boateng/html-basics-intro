@@ -1,12 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="The OSI and TCP/IP network models explained — layers, functions, and protocols at each level." />
+    <meta name="description"
+        content="The OSI and TCP/IP network models explained — layers, functions, and protocols at each level." />
     <title>Network Models — Data Communication</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
     <nav>
@@ -19,7 +22,10 @@
             <li><a href="quiz.html">Quiz</a></li>
             <li><a href="resources.html">Resources</a></li>
         </ul>
-        <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+        <div class="nav-actions">
+            <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+            <button id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        </div>
     </nav>
     <div id="progressBar"></div>
 
@@ -36,14 +42,17 @@
         <!-- OSI Model -->
         <section class="fade-in" id="osi">
             <h2>The OSI Model</h2>
-            <p>The <strong>Open Systems Interconnection (OSI)</strong> model is a conceptual framework developed by ISO that divides network communication into <strong>7 layers</strong>. Each layer has a specific role and communicates only with the layers directly above and below it.</p>
+            <p>The <strong>Open Systems Interconnection (OSI)</strong> model is a conceptual framework developed by ISO
+                that divides network communication into <strong>7 layers</strong>. Each layer has a specific role and
+                communicates only with the layers directly above and below it.</p>
             <p>Click each layer to expand its details.</p>
 
             <div class="accordion">
                 <div class="accordion-item">
                     <button class="accordion-btn">Layer 7 — Application</button>
                     <div class="accordion-body">
-                        <p><strong>Role:</strong> The interface between the network and end-user software. Provides services like file transfer, email, and web browsing directly to applications.</p>
+                        <p><strong>Role:</strong> The interface between the network and end-user software. Provides
+                            services like file transfer, email, and web browsing directly to applications.</p>
                         <p><strong>Protocols:</strong> HTTP, HTTPS, FTP, SMTP, DNS, POP3, IMAP, DHCP</p>
                         <p><strong>Example:</strong> Your browser makes an HTTP request to load a webpage.</p>
                     </div>
@@ -51,7 +60,8 @@
                 <div class="accordion-item">
                     <button class="accordion-btn">Layer 6 — Presentation</button>
                     <div class="accordion-body">
-                        <p><strong>Role:</strong> Translates, encrypts, and compresses data so the application layer can understand it regardless of how the other system stores it.</p>
+                        <p><strong>Role:</strong> Translates, encrypts, and compresses data so the application layer can
+                            understand it regardless of how the other system stores it.</p>
                         <p><strong>Protocols/Formats:</strong> SSL/TLS (encryption), JPEG, PNG, MPEG, ASCII, Unicode</p>
                         <p><strong>Example:</strong> SSL encrypts your password before it is sent over the network.</p>
                     </div>
@@ -59,7 +69,8 @@
                 <div class="accordion-item">
                     <button class="accordion-btn">Layer 5 — Session</button>
                     <div class="accordion-body">
-                        <p><strong>Role:</strong> Establishes, manages, and terminates communication sessions between applications. Handles authentication and reconnection after interruption.</p>
+                        <p><strong>Role:</strong> Establishes, manages, and terminates communication sessions between
+                            applications. Handles authentication and reconnection after interruption.</p>
                         <p><strong>Protocols:</strong> NetBIOS, RPC, PPTP, SIP</p>
                         <p><strong>Example:</strong> A video call maintains a session for the duration of the call.</p>
                     </div>
@@ -67,33 +78,44 @@
                 <div class="accordion-item">
                     <button class="accordion-btn">Layer 4 — Transport</button>
                     <div class="accordion-body">
-                        <p><strong>Role:</strong> Provides end-to-end data delivery, error recovery, and flow control. Segments large messages and reassembles them at the destination.</p>
-                        <p><strong>Protocols:</strong> TCP (reliable, connection-oriented), UDP (fast, connectionless)</p>
-                        <p><strong>Example:</strong> TCP ensures every packet of a file download arrives correctly and in order.</p>
+                        <p><strong>Role:</strong> Provides end-to-end data delivery, error recovery, and flow control.
+                            Segments large messages and reassembles them at the destination.</p>
+                        <p><strong>Protocols:</strong> TCP (reliable, connection-oriented), UDP (fast, connectionless)
+                        </p>
+                        <p><strong>Example:</strong> TCP ensures every packet of a file download arrives correctly and
+                            in order.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-btn">Layer 3 — Network</button>
                     <div class="accordion-body">
-                        <p><strong>Role:</strong> Handles logical addressing (IP addresses) and routing — determining the best path for data to travel across multiple networks.</p>
+                        <p><strong>Role:</strong> Handles logical addressing (IP addresses) and routing — determining
+                            the best path for data to travel across multiple networks.</p>
                         <p><strong>Protocols:</strong> IP (IPv4, IPv6), ICMP, OSPF, BGP, RIP</p>
-                        <p><strong>Example:</strong> A router examines IP addresses and forwards packets toward their destination.</p>
+                        <p><strong>Example:</strong> A router examines IP addresses and forwards packets toward their
+                            destination.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-btn">Layer 2 — Data Link</button>
                     <div class="accordion-body">
-                        <p><strong>Role:</strong> Provides node-to-node data transfer between directly connected devices. Uses MAC addresses to identify devices on the same network segment. Handles error detection for physical transmission.</p>
+                        <p><strong>Role:</strong> Provides node-to-node data transfer between directly connected
+                            devices. Uses MAC addresses to identify devices on the same network segment. Handles error
+                            detection for physical transmission.</p>
                         <p><strong>Protocols:</strong> Ethernet (IEEE 802.3), Wi-Fi (IEEE 802.11), ARP, PPP</p>
-                        <p><strong>Example:</strong> A network switch reads MAC addresses to forward frames to the correct device.</p>
+                        <p><strong>Example:</strong> A network switch reads MAC addresses to forward frames to the
+                            correct device.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-btn">Layer 1 — Physical</button>
                     <div class="accordion-body">
-                        <p><strong>Role:</strong> Transmits raw binary bits (0s and 1s) over a physical medium. Defines electrical signals, cable types, pin layouts, and data rates.</p>
-                        <p><strong>Examples:</strong> Ethernet cables, fibre optic, radio waves, hubs, repeaters, network interface cards (NICs)</p>
-                        <p><strong>Example:</strong> A network cable physically carries electrical pulses between a PC and a switch.</p>
+                        <p><strong>Role:</strong> Transmits raw binary bits (0s and 1s) over a physical medium. Defines
+                            electrical signals, cable types, pin layouts, and data rates.</p>
+                        <p><strong>Examples:</strong> Ethernet cables, fibre optic, radio waves, hubs, repeaters,
+                            network interface cards (NICs)</p>
+                        <p><strong>Example:</strong> A network cable physically carries electrical pulses between a PC
+                            and a switch.</p>
                     </div>
                 </div>
             </div>
@@ -102,12 +124,14 @@
         <!-- TCP/IP Model -->
         <section class="fade-in" id="tcpip">
             <h2>The TCP/IP Model</h2>
-            <p>The <strong>TCP/IP model</strong> (also called the Internet Model) is the practical framework that actually powers the internet. It condenses the 7 OSI layers into <strong>4 layers</strong>.</p>
+            <p>The <strong>TCP/IP model</strong> (also called the Internet Model) is the practical framework that
+                actually powers the internet. It condenses the 7 OSI layers into <strong>4 layers</strong>.</p>
 
             <div class="info-grid">
                 <div class="info-card">
                     <strong>4. Application Layer</strong>
-                    <p>Combines OSI layers 5, 6, and 7. Handles all high-level protocols directly used by applications.</p>
+                    <p>Combines OSI layers 5, 6, and 7. Handles all high-level protocols directly used by applications.
+                    </p>
                     <p><strong>Protocols:</strong> HTTP, FTP, DNS, SMTP, DHCP, SSH</p>
                 </div>
                 <div class="info-card">
@@ -132,14 +156,44 @@
         <section class="fade-in" id="compare">
             <h2>OSI vs TCP/IP — Comparison</h2>
             <table>
-                <thead><tr><th>Feature</th><th>OSI Model</th><th>TCP/IP Model</th></tr></thead>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>OSI Model</th>
+                        <th>TCP/IP Model</th>
+                    </tr>
+                </thead>
                 <tbody>
-                    <tr><td><strong>Layers</strong></td><td>7</td><td>4</td></tr>
-                    <tr><td><strong>Developed by</strong></td><td>ISO (International Organization for Standardization)</td><td>U.S. Department of Defense (DARPA)</td></tr>
-                    <tr><td><strong>Purpose</strong></td><td>Conceptual/theoretical reference model</td><td>Practical implementation model for the internet</td></tr>
-                    <tr><td><strong>Protocol independence</strong></td><td>Generic — not tied to specific protocols</td><td>Based on TCP and IP specifically</td></tr>
-                    <tr><td><strong>Presentation &amp; Session layers</strong></td><td>Separate dedicated layers</td><td>Merged into the Application layer</td></tr>
-                    <tr><td><strong>Usage today</strong></td><td>Teaching and troubleshooting reference</td><td>Actual internet communication standard</td></tr>
+                    <tr>
+                        <td><strong>Layers</strong></td>
+                        <td>7</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Developed by</strong></td>
+                        <td>ISO (International Organization for Standardization)</td>
+                        <td>U.S. Department of Defense (DARPA)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Purpose</strong></td>
+                        <td>Conceptual/theoretical reference model</td>
+                        <td>Practical implementation model for the internet</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Protocol independence</strong></td>
+                        <td>Generic — not tied to specific protocols</td>
+                        <td>Based on TCP and IP specifically</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Presentation &amp; Session layers</strong></td>
+                        <td>Separate dedicated layers</td>
+                        <td>Merged into the Application layer</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Usage today</strong></td>
+                        <td>Teaching and troubleshooting reference</td>
+                        <td>Actual internet communication standard</td>
+                    </tr>
                 </tbody>
             </table>
         </section>
@@ -152,16 +206,18 @@
                 <div class="info-card">
                     <strong>TCP — Transmission Control Protocol</strong>
                     <p><strong>Type:</strong> Connection-oriented<br>
-                    <strong>Reliability:</strong> Guaranteed delivery, ordering, error checking<br>
-                    <strong>Speed:</strong> Slower (acknowledgements required)<br>
-                    <strong>Use cases:</strong> Web browsing (HTTP), email, file transfers, online banking</p>
+                        <strong>Reliability:</strong> Guaranteed delivery, ordering, error checking<br>
+                        <strong>Speed:</strong> Slower (acknowledgements required)<br>
+                        <strong>Use cases:</strong> Web browsing (HTTP), email, file transfers, online banking
+                    </p>
                 </div>
                 <div class="info-card">
                     <strong>UDP — User Datagram Protocol</strong>
                     <p><strong>Type:</strong> Connectionless<br>
-                    <strong>Reliability:</strong> No guaranteed delivery or ordering<br>
-                    <strong>Speed:</strong> Faster (no handshake overhead)<br>
-                    <strong>Use cases:</strong> Video streaming, VoIP, online gaming, DNS lookups</p>
+                        <strong>Reliability:</strong> No guaranteed delivery or ordering<br>
+                        <strong>Speed:</strong> Faster (no handshake overhead)<br>
+                        <strong>Use cases:</strong> Video streaming, VoIP, online gaming, DNS lookups
+                    </p>
                 </div>
             </div>
         </section>
@@ -180,11 +236,13 @@
         <p class="footer-sub">Created by <strong>Harry Atieku-Boateng</strong></p>
         <p class="footer-sub footer-links">
             <a href="https://github.com/hatieku-boateng" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/harry-atieku-boateng-369700202/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/harry-atieku-boateng-369700202/" target="_blank"
+                rel="noopener noreferrer">LinkedIn</a>
         </p>
         <p class="footer-sub">&copy; <span id="footerYear"></span> Data Communication. All rights reserved.</p>
     </footer>
 
     <script src="style.js"></script>
 </body>
+
 </html>

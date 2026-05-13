@@ -34,6 +34,24 @@ if (darkToggle) {
     });
 }
 
+// == 2b. Mobile Nav Toggle ==
+const navToggle = document.getElementById("navToggle");
+const navMenu = document.querySelector("nav ul");
+if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+        const open = navMenu.classList.toggle("open");
+        navToggle.textContent = open ? "✕" : "☰";
+        navToggle.setAttribute("aria-expanded", open);
+    });
+    // Close on link click
+    navMenu.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+            navMenu.classList.remove("open");
+            navToggle.textContent = "☰";
+        });
+    });
+}
+
 // == 3. Active nav link by pathname ==
 (function () {
     const navLinks = document.querySelectorAll("nav ul li a");
@@ -59,6 +77,24 @@ document.querySelectorAll("section").forEach((s) => {
     s.classList.add("fade-in");
     fadeObserver.observe(s);
 });
+
+// == 4b. Hero stat counter animation ==
+(function () {
+    const stats = document.querySelectorAll(".stat span[data-target]");
+    if (!stats.length) return;
+    stats.forEach(el => {
+        const target = parseInt(el.dataset.target, 10);
+        const duration = 1200;
+        const step = Math.ceil(target / (duration / 16));
+        let current = 0;
+        const suffix = el.dataset.suffix || "";
+        const timer = setInterval(() => {
+            current = Math.min(current + step, target);
+            el.textContent = current + suffix;
+            if (current >= target) clearInterval(timer);
+        }, 16);
+    });
+})();
 
 // == 5. Back to Top Button ==
 const backToTop = document.getElementById("backToTop");
@@ -144,7 +180,7 @@ if (firstTable && window.location.pathname.includes("tags")) {
     input.type = "text";
     input.placeholder = "🔍  Search tags by name or purpose...";
     input.id = "tableFilter";
-    input.style.cssText = "width:100%;padding:10px 14px;border:1px solid var(--color-border);border-radius:8px;font-size:0.9rem;background:var(--color-bg);color:var(--color-text);margin-bottom:12px;display:block;";
+    input.style.cssText = "width:100%;padding:10px 14px;border:1px solid var(--clr-border);border-radius:8px;font-size:0.9rem;background:var(--clr-bg);color:var(--clr-text);margin-bottom:12px;display:block;";
     firstTable.closest("section").insertBefore(input, firstTable.closest("section").querySelector("table"));
     input.addEventListener("input", function () {
         const q = this.value.toLowerCase();

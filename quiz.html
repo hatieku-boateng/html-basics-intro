@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@
     <title>Quiz — Data Communication</title>
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
     <nav>
@@ -19,7 +21,10 @@
             <li><a href="quiz.html" class="active">Quiz</a></li>
             <li><a href="resources.html">Resources</a></li>
         </ul>
-        <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+        <div class="nav-actions">
+            <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+            <button id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        </div>
     </nav>
     <div id="progressBar"></div>
 
@@ -27,7 +32,8 @@
         <div class="ph-inner">
             <div class="breadcrumb"><a href="index.html">Home</a> / Quiz</div>
             <h1>Test Your Knowledge</h1>
-            <p>5 questions covering data communication concepts, network models, and technologies. Select your answers then submit.</p>
+            <p>5 questions covering data communication concepts, network models, and technologies. Select your answers
+                then submit.</p>
         </div>
     </div>
 
@@ -35,7 +41,8 @@
 
         <section class="fade-in">
             <h2>Data Communication Quiz</h2>
-            <p>Answer all 5 questions and click <strong>Submit Answers</strong> to see your score and feedback on each answer.</p>
+            <p>Answer all 5 questions and click <strong>Submit Answers</strong> to see your score and feedback on each
+                answer.</p>
             <div id="quizContainer"></div>
             <div id="quizResult" class="quiz-result hidden">
                 <p id="quizScore"></p>
@@ -84,11 +91,13 @@
         <p class="footer-sub">Created by <strong>Harry Atieku-Boateng</strong></p>
         <p class="footer-sub footer-links">
             <a href="https://github.com/hatieku-boateng" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/harry-atieku-boateng-369700202/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/harry-atieku-boateng-369700202/" target="_blank"
+                rel="noopener noreferrer">LinkedIn</a>
         </p>
         <p class="footer-sub">&copy; <span id="footerYear"></span> Data Communication. All rights reserved.</p>
     </footer>
 
     <script src="style.js"></script>
 </body>
+
 </html>
