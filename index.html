@@ -1,24 +1,21 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Learn HTML interactively — a beginner-friendly guide covering core concepts, a live playground, tag reference, quiz, and resources." />
-    <title>Learn HTML — Home</title>
+    <meta name="description" content="A beginner-friendly summary of data communication and its technologies — signals, protocols, network models, and wireless systems." />
+    <title>Data Communication — Home</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
     <nav>
-        <a href="index.html" class="nav-brand">Learn<span>HTML</span></a>
+        <a href="index.html" class="nav-brand">Data<span>Comm</span></a>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="concepts.html">Concepts</a></li>
-            <li><a href="playground.html">Playground</a></li>
-            <li><a href="tags.html">Tags</a></li>
+            <li><a href="playground.html">Models</a></li>
+            <li><a href="tags.html">Technologies</a></li>
             <li><a href="quiz.html">Quiz</a></li>
             <li><a href="resources.html">Resources</a></li>
         </ul>
@@ -28,11 +25,11 @@
 
     <header>
         <div class="badge">✦ Beginner Friendly</div>
-        <h1>Learn HTML</h1>
-        <p>An interactive guide to building your first webpage — from zero to confident.</p>
+        <h1>Data Communication</h1>
+        <p>A structured overview of how data moves across networks — from electrical signals to the protocols that power the modern internet.</p>
         <div class="header-stats">
-            <div class="stat"><span>5</span> Pages</div>
-            <div class="stat"><span>10</span> Tags Covered</div>
+            <div class="stat"><span>5</span> Topics</div>
+            <div class="stat"><span>20+</span> Technologies</div>
             <div class="stat"><span>5</span> Quiz Questions</div>
         </div>
         <a href="concepts.html" class="hero-btn">Start Learning →</a>
@@ -40,102 +37,100 @@
 
     <main>
 
-        <!-- What is HTML -->
         <section id="about" class="fade-in">
-            <h2>What is HTML?</h2>
-            <p>
-                <strong>HTML</strong> stands for <em>HyperText Markup Language</em>.
-                It is the standard language used to create and structure content on the web.
-                Every website you visit is built on HTML.
-            </p>
-            <img src="images/1.jpg" alt="HTML illustration" />
+            <h2>What is Data Communication?</h2>
+            <p><strong>Data communication</strong> is the exchange of data between two or more devices through a transmission medium such as a cable or wireless channel. For communication to work, all devices must follow the same set of rules — called a <strong>protocol</strong>.</p>
 
-            <h3>How does a browser read HTML?</h3>
+            <h3>The 5 Components of a Communication System</h3>
+            <div class="info-grid" style="grid-template-columns: repeat(auto-fill, minmax(180px,1fr));">
+                <div class="info-card"><strong>📤 Sender</strong><p>The device that originates the data — e.g. a laptop, phone, or server.</p></div>
+                <div class="info-card"><strong>📨 Message</strong><p>The data being communicated — text, numbers, images, audio, or video.</p></div>
+                <div class="info-card"><strong>📡 Medium</strong><p>The physical path data travels — copper wire, fibre optic cable, or radio waves.</p></div>
+                <div class="info-card"><strong>📥 Receiver</strong><p>The device that receives and interprets the incoming data.</p></div>
+                <div class="info-card"><strong>📋 Protocol</strong><p>Rules governing how data is formatted, transmitted, and acknowledged.</p></div>
+            </div>
+
+            <h3>How does data travel from A to B?</h3>
             <div class="accordion">
                 <div class="accordion-item">
-                    <button class="accordion-btn">1. Downloads the HTML file</button>
+                    <button class="accordion-btn">1. Encoding</button>
                     <div class="accordion-body">
-                        <p>When you visit a URL, the browser sends a request to a server and receives an HTML file in
-                            return.</p>
+                        <p>The sender converts the message into a suitable signal — digital data is encoded as electrical pulses, light pulses, or radio waves depending on the transmission medium used.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-btn">2. Parses the tags</button>
+                    <button class="accordion-btn">2. Transmission</button>
                     <div class="accordion-body">
-                        <p>The browser reads through the HTML top to bottom, recognising opening and closing tags and
-                            building a tree structure called the <strong>DOM</strong> (Document Object Model).</p>
+                        <p>The encoded signal travels through the medium. Factors such as distance, interference, and noise can degrade the signal — error-detection mechanisms help catch problems at this stage.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
-                    <button class="accordion-btn">3. Renders the page</button>
+                    <button class="accordion-btn">3. Decoding &amp; Reception</button>
                     <div class="accordion-body">
-                        <p>Using the DOM tree, the browser calculates layout and paints pixels on your screen —
-                            producing the visual page you see.</p>
+                        <p>The receiver converts the incoming signal back into usable data and verifies its integrity using techniques like CRC (Cyclic Redundancy Check) or parity bits before passing it to the application.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Site Navigation Cards -->
         <section class="fade-in">
             <h2>Explore the Guide</h2>
-            <p>Each section is its own dedicated page — pick where you want to start.</p>
+            <p>Each section covers a key area of data communication — pick where you want to start.</p>
             <div class="nav-cards">
                 <a href="concepts.html" class="nav-card">
                     <div class="nc-icon">📖</div>
                     <strong>Concepts</strong>
-                    <p>Elements, attributes, page structure, and headings — explained with interactive tabs and code
-                        examples.</p>
+                    <p>Transmission modes, signal types, bandwidth, transmission media, and protocols.</p>
                     <span class="nc-link">Explore →</span>
                 </a>
                 <a href="playground.html" class="nav-card">
-                    <div class="nc-icon">🧪</div>
-                    <strong>Playground</strong>
-                    <p>Type HTML and see it render live in a split-pane editor. No setup required.</p>
-                    <span class="nc-link">Try it →</span>
+                    <div class="nc-icon">🔗</div>
+                    <strong>Network Models</strong>
+                    <p>The OSI and TCP/IP models — how they organise and layer communication functions.</p>
+                    <span class="nc-link">View Models →</span>
                 </a>
                 <a href="tags.html" class="nav-card">
-                    <div class="nc-icon">🏷️</div>
-                    <strong>Tags Reference</strong>
-                    <p>A searchable table of the most commonly used HTML tags with examples.</p>
+                    <div class="nc-icon">📡</div>
+                    <strong>Technologies</strong>
+                    <p>Wired, wireless, and networking technologies with key standards and specifications.</p>
                     <span class="nc-link">Browse →</span>
                 </a>
                 <a href="quiz.html" class="nav-card">
                     <div class="nc-icon">🧠</div>
                     <strong>Quiz</strong>
-                    <p>Test what you have learned with 5 interactive questions and instant scoring.</p>
+                    <p>Test your understanding with 5 interactive questions and instant scoring.</p>
                     <span class="nc-link">Take Quiz →</span>
                 </a>
                 <a href="resources.html" class="nav-card">
-                    <div class="nc-icon">🔗</div>
+                    <div class="nc-icon">🔖</div>
                     <strong>Resources</strong>
-                    <p>Hand-picked links to the best HTML learning resources on the web.</p>
+                    <p>Recommended courses, tools, and reading for going deeper on data communication.</p>
                     <span class="nc-link">View →</span>
                 </a>
             </div>
         </section>
 
-        <!-- Why Learn HTML -->
         <section class="fade-in">
-            <h2>Why Learn HTML?</h2>
+            <h2>Why Does Data Communication Matter?</h2>
             <div class="two-col">
                 <div>
-                    <h3>Benefits</h3>
+                    <h3>Real-World Applications</h3>
                     <ul>
-                        <li>It is the foundation of every website on the internet.</li>
-                        <li>Easy to learn — you can write your first page in minutes.</li>
-                        <li>Works alongside CSS (styling) and JavaScript (behaviour).</li>
-                        <li>Opens the door to a career in web development.</li>
+                        <li>The internet — billions of devices exchanging data every second.</li>
+                        <li>Mobile networks — voice and data delivered over cellular towers.</li>
+                        <li>Video streaming — continuous, real-time data delivery at scale.</li>
+                        <li>Cloud computing — remote storage and processing over wide-area networks.</li>
+                        <li>IoT — smart devices communicating autonomously without human intervention.</li>
                     </ul>
                 </div>
                 <div>
-                    <h3>Steps to Get Started</h3>
+                    <h3>Key Areas Covered in This Guide</h3>
                     <ol>
-                        <li>Learn the basic HTML document structure.</li>
-                        <li>Understand common tags and their purpose.</li>
-                        <li>Build your first webpage.</li>
-                        <li>Style it with CSS.</li>
-                        <li>Add interactivity with JavaScript.</li>
+                        <li>How signals carry data through different transmission media.</li>
+                        <li>The role of protocols in reliable, ordered communication.</li>
+                        <li>Network models — OSI and TCP/IP — and their layered functions.</li>
+                        <li>Wired vs wireless technologies and their trade-offs.</li>
+                        <li>Network types: LAN, MAN, WAN, and beyond.</li>
                     </ol>
                 </div>
             </div>
@@ -150,13 +145,11 @@
         <p class="footer-sub">Created by <strong>Harry Atieku-Boateng</strong></p>
         <p class="footer-sub footer-links">
             <a href="https://github.com/hatieku-boateng" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/harry-atieku-boateng-369700202/" target="_blank"
-                rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/harry-atieku-boateng-369700202/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </p>
-        <p class="footer-sub">&copy; <span id="footerYear"></span> Learn HTML. All rights reserved.</p>
+        <p class="footer-sub">&copy; <span id="footerYear"></span> Data Communication. All rights reserved.</p>
     </footer>
 
     <script src="style.js"></script>
 </body>
-
 </html>

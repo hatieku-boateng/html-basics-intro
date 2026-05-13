@@ -1,24 +1,21 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Test your HTML knowledge with 5 interactive quiz questions and instant scoring." />
-    <title>Quiz — Learn HTML</title>
+    <meta name="description" content="Test your knowledge of data communication with 5 interactive quiz questions." />
+    <title>Quiz — Data Communication</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
     <nav>
-        <a href="index.html" class="nav-brand">Learn<span>HTML</span></a>
+        <a href="index.html" class="nav-brand">Data<span>Comm</span></a>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="concepts.html">Concepts</a></li>
-            <li><a href="playground.html">Playground</a></li>
-            <li><a href="tags.html">Tags</a></li>
+            <li><a href="playground.html">Models</a></li>
+            <li><a href="tags.html">Technologies</a></li>
             <li><a href="quiz.html" class="active">Quiz</a></li>
             <li><a href="resources.html">Resources</a></li>
         </ul>
@@ -30,15 +27,15 @@
         <div class="ph-inner">
             <div class="breadcrumb"><a href="index.html">Home</a> / Quiz</div>
             <h1>Test Your Knowledge</h1>
-            <p>5 questions covering everything you have learned. Select your answer and submit when ready.</p>
+            <p>5 questions covering data communication concepts, network models, and technologies. Select your answers then submit.</p>
         </div>
     </div>
 
     <main>
 
         <section class="fade-in">
-            <h2>HTML Quiz</h2>
-            <p>Answer all questions, then click <strong>Submit Answers</strong> to see your score and feedback.</p>
+            <h2>Data Communication Quiz</h2>
+            <p>Answer all 5 questions and click <strong>Submit Answers</strong> to see your score and feedback on each answer.</p>
             <div id="quizContainer"></div>
             <div id="quizResult" class="quiz-result hidden">
                 <p id="quizScore"></p>
@@ -49,33 +46,32 @@
             </div>
         </section>
 
-        <!-- What to study -->
         <section class="fade-in">
-            <h2>Struggling? Revisit These Pages</h2>
+            <h2>Need to Review?</h2>
             <div class="nav-cards nav-cards-compact">
                 <a href="concepts.html" class="nav-card">
                     <div class="nc-icon">📖</div>
                     <strong>Concepts</strong>
-                    <p>Elements, attributes, structure</p>
-                    <span class="nc-link">Review →</span>
-                </a>
-                <a href="tags.html" class="nav-card">
-                    <div class="nc-icon">🏷️</div>
-                    <strong>Tags Reference</strong>
-                    <p>Full tag reference tables</p>
+                    <p>Transmission modes, signals, media, protocols</p>
                     <span class="nc-link">Review →</span>
                 </a>
                 <a href="playground.html" class="nav-card">
-                    <div class="nc-icon">🧪</div>
-                    <strong>Playground</strong>
-                    <p>Practise writing HTML live</p>
-                    <span class="nc-link">Practise →</span>
+                    <div class="nc-icon">🔗</div>
+                    <strong>Network Models</strong>
+                    <p>OSI model, TCP/IP model, TCP vs UDP</p>
+                    <span class="nc-link">Review →</span>
+                </a>
+                <a href="tags.html" class="nav-card">
+                    <div class="nc-icon">📡</div>
+                    <strong>Technologies</strong>
+                    <p>Wired, wireless, network types, topologies</p>
+                    <span class="nc-link">Review →</span>
                 </a>
             </div>
         </section>
 
         <div class="page-nav">
-            <a href="tags.html" class="page-nav-btn prev">← Tags</a>
+            <a href="tags.html" class="page-nav-btn prev">← Technologies</a>
             <a href="resources.html" class="page-nav-btn next">Resources →</a>
         </div>
 
@@ -88,13 +84,11 @@
         <p class="footer-sub">Created by <strong>Harry Atieku-Boateng</strong></p>
         <p class="footer-sub footer-links">
             <a href="https://github.com/hatieku-boateng" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/harry-atieku-boateng-369700202/" target="_blank"
-                rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/harry-atieku-boateng-369700202/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </p>
-        <p class="footer-sub">&copy; <span id="footerYear"></span> Learn HTML. All rights reserved.</p>
+        <p class="footer-sub">&copy; <span id="footerYear"></span> Data Communication. All rights reserved.</p>
     </footer>
 
     <script src="style.js"></script>
 </body>
-
 </html>

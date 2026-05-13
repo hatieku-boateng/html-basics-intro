@@ -179,11 +179,11 @@ document.querySelectorAll("code").forEach((el) => {
     if (!container) return;
 
     const quizData = [
-        { q: "What does HTML stand for?", options: ["Hyper Text Markup Language", "High Tech Modern Language", "HyperLinks and Text Markup Language", "Home Tool Markup Language"], answer: 0 },
-        { q: "Which tag creates the largest heading?", options: ["&lt;h6&gt;", "&lt;heading&gt;", "&lt;h1&gt;", "&lt;head&gt;"], answer: 2 },
-        { q: "Which tag is used to insert an image?", options: ["&lt;picture&gt;", "&lt;image&gt;", "&lt;src&gt;", "&lt;img&gt;"], answer: 3 },
-        { q: "What attribute specifies the URL of a link in the &lt;a&gt; tag?", options: ["src", "href", "link", "url"], answer: 1 },
-        { q: "Which HTML element wraps the primary content of a page?", options: ["&lt;content&gt;", "&lt;section&gt;", "&lt;body&gt;", "&lt;main&gt;"], answer: 3 }
+        { q: "Which transmission mode allows data to flow in both directions simultaneously?", options: ["Simplex", "Half-duplex", "Full-duplex", "Multiplex"], answer: 2 },
+        { q: "What does OSI stand for?", options: ["Open Source Infrastructure", "Online Service Interface", "Open Systems Interconnection", "Optical Signal Integration"], answer: 2 },
+        { q: "Which layer of the OSI model is responsible for routing packets between networks?", options: ["Data Link Layer", "Transport Layer", "Session Layer", "Network Layer"], answer: 3 },
+        { q: "Which transmission medium uses pulses of light to carry data?", options: ["Twisted Pair Cable", "Coaxial Cable", "Fibre Optic Cable", "Microwave"], answer: 2 },
+        { q: "Which protocol provides reliable, ordered, and error-checked delivery of data?", options: ["UDP", "IP", "TCP", "ICMP"], answer: 2 }
     ];
 
     function buildQuiz() {
