@@ -3,8 +3,8 @@
 // =========================================
 
 // == Safe localStorage helper ==
-function storageGet(key) { try { return localStorage.getItem(key); } catch(e) { return null; } }
-function storageSet(key, val) { try { localStorage.setItem(key, val); } catch(e) {} }
+function storageGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+function storageSet(key, val) { try { localStorage.setItem(key, val); } catch (e) { } }
 
 // == 1. Scroll Progress Bar ==
 const progressBar = document.getElementById("progressBar");
@@ -169,7 +169,7 @@ document.querySelectorAll("code").forEach((el) => {
                 this.style.background = "";
                 this.style.color = "";
             }, 1500);
-        }).catch(() => {});
+        }).catch(() => { });
     });
 });
 
@@ -191,11 +191,10 @@ document.querySelectorAll("code").forEach((el) => {
         quizData.forEach((item, qi) => {
             const block = document.createElement("div");
             block.className = "quiz-question";
-            block.innerHTML = `<p>Q${qi + 1}. ${item.q}</p><div class="quiz-options">${
-                item.options.map((opt, oi) =>
-                    `<label class="quiz-option"><input type="radio" name="q${qi}" value="${oi}" /> ${opt}</label>`
-                ).join("")
-            }</div>`;
+            block.innerHTML = `<p>Q${qi + 1}. ${item.q}</p><div class="quiz-options">${item.options.map((opt, oi) =>
+                `<label class="quiz-option"><input type="radio" name="q${qi}" value="${oi}" /> ${opt}</label>`
+            ).join("")
+                }</div>`;
             container.appendChild(block);
         });
         const submitBtn = document.createElement("button");
